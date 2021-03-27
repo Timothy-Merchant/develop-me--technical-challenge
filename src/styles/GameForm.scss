@@ -1,0 +1,38 @@
+@import "./Global.scss";
+
+.GameForm {
+    height: 8rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid $GreenMid;
+    color: $GreenMid;
+    font-family: $font;
+}
+
+.GameForm__Entry {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.GameForm__Label {
+    text-align: center;
+}
+
+.GameForm__Input {
+    height: 1.5rem;
+    border: 1px solid $GreenMid;
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
+}
+
+.GameForm__Button {
+    padding: 0.5rem;
+    border: 1px solid $GreenMid;
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
+}
