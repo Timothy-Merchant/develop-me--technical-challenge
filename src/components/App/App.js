@@ -1,14 +1,10 @@
 import '../../styles/App.scss';
-import PairingRow from '../PairingRow';
 import TournamentTree from '../TournamentTree';
 
 const App = () => {
   return (
-    <div className="pageStyle">
-      <h1>TournamentTree</h1>
+    <div className="pageStyle">      
       <TournamentTree />
-      <h1>PairingRow</h1>
-      <PairingRow />
     </div>
   );
 }
