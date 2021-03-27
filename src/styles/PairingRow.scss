@@ -1,1 +1,17 @@
 @import "./Global.scss";
+
+.PairingRow {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.PairingRow__title {
+    color: $GreenMid;
+    font-family: $font;
+    font-size: 22px;
+    border: 1px solid $GreenMid;
+    margin: 0px;
+    padding: 7px;
+}

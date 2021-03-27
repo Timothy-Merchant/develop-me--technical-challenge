@@ -4,10 +4,13 @@ import Pairing from '../Pairing';
 const PairingRow = () => {
     return (
         <>
-            <Pairing />
-            <Pairing />
-            <Pairing />
-            <Pairing />
+            <div className="PairingRow">
+                <h1 className="PairingRow__title">Semi-finals</h1>
+                <Pairing />
+                <Pairing />
+                <Pairing />
+                <Pairing />
+            </div>
         </>
     );
 }

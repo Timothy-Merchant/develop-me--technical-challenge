@@ -1,1 +1,11 @@
 @import "./Global.scss";
+
+.pageStyle {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background-color: $GreenBlack;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
