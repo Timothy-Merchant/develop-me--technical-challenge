@@ -1,12 +1,14 @@
 import '../../styles/App.scss';
-import Pairing from '../Pairing';
+import PairingRow from '../PairingRow';
 import TournamentTree from '../TournamentTree';
 
 const App = () => {
   return (
     <>
-      <Pairing />
+      <h1>TournamentTree</h1>
       <TournamentTree />
+      <h1>PairingRow</h1>
+      <PairingRow />
     </>
   );
 }
