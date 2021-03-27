@@ -1,7 +1,34 @@
 @import "./Global.scss";
 
-.pairing__player {
-    width: 12rem;
-    height: 1.5rem;
+$border: 1px;
+
+%positioning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: $font;
+    color: $GreenMid;
+}
+
+td {    
     border: 1px solid $GreenMid;
+}
+
+.pairing__player {        
+    height: 2rem;
+}
+.pairing__name {    
+    width: 13rem;
+}
+.pairing__score {    
+    text-align: center;
+    width: 3rem;
+}
+.pairing__win {    
+    text-align: center;
+    width: 3rem;
 }
