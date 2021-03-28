@@ -5,3 +5,19 @@ $GreenMid: #22b455;
 $GreenLight: #80ce87;
 $GreenXL: #92e5a1;
 $font: "Press Start 2P", cursive;
+
+@mixin button {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: $GreenBlack;
+    color: $GreenMid;
+    font-family: $font;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

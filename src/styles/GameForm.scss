@@ -30,7 +30,8 @@
 }
 
 .GameForm__Button {
-    padding: 0.5rem;
+    @include button;
+    padding: 0.4rem;
     border: 1px solid $GreenMid;
     color: $GreenMid;
     background-color: $GreenBlack;
