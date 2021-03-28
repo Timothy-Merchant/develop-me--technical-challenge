@@ -1,0 +1,30 @@
+@import "./Global.scss";
+
+.Player__Wrapper {
+    border: 1px solid $GreenMid;
+    width: 15rem;
+    height: 14rem;
+    color: $GreenMid;
+    font-family: $font;
+    font-size: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Player__Button {
+    @include button;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid $GreenMid;        
+    font-size: 2.5rem;  
+    font-family: 'Courier New', Courier, monospace;   
+    border-radius: 100%;   
+}
+
+.Player__Score {    
+    font-size: 3rem;
+    margin: 0 0 0 6px;
+}
