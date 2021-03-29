@@ -9,7 +9,7 @@ const App = () => {
     <div className="pageStyle">
       <GameForm />
       <Roster />
-      <MatchBox />      
+      <MatchBox />
       <TournamentTree />
     </div>
   );

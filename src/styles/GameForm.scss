@@ -1,7 +1,7 @@
 @import "./Global.scss";
 
 .GameForm {
-    height: 8rem;
+    height: 100%;
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -36,4 +36,9 @@
     color: $GreenMid;
     background-color: $GreenBlack;
     font-family: $font;
+}
+
+.GameForm__Error {
+    margin: 16px 0 0 0;
+    color: $GreenLight;
 }

@@ -3,8 +3,6 @@ export const deletePlayer = (state, { index }) => ({
     players: state.players.filter((player, i) => index !== i)
 })
 
-
-
 const reducer = (state, action) => {
     switch (action.type) {
         case "CREATE_PLAYER": return { ...state, players: [...state.players, action.newPlayer] };
