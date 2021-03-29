@@ -3,6 +3,7 @@ import Roster from "./Roster";
 
 const mapStateToProps = state => {
     return {
+        players: state.players
     }
 }
 

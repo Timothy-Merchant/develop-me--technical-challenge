@@ -21,8 +21,8 @@ const GameForm = ({ createPlayer }) => {
             <div className="GameForm__Entry">
                 <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
                 <input value={playerName} onChange={handleNameInput} type="text" className="GameForm__Input" name="name" id="name" required></input>
-                <button className="GameForm__Button">Add Player</button>
-                <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
+                <button type="submit" className="GameForm__Button">Add Player</button>
+                <button disabled className="GameForm__Button">Enter the Pongtrix!</button>
             </div>
         </form>
     );

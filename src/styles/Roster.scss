@@ -1,15 +1,6 @@
 @import "./Global.scss";
 
-td {
-    height: 1rem;
-    text-align: center;
-    padding: 6px 0;
-}
-
-th {
-    padding: 0 0 6px 0;
-}
-
+// wrapper styles
 .Roster__Wrapper {
     width: 30rem;
     display: flex;
@@ -18,28 +9,34 @@ th {
     border: 1px solid $GreenMid;
     color: $GreenMid;
     font-family: $font;
-}
-
-.Roster__Header {
-    font-size: 25px;
-    padding: 0 0 2rem 0;
-}
-
-.Roster__List {
-    list-style: none;
-}
-
-.Roster__Header {
     text-align: center;
-    margin: 0px;
+}
+.Roster__Header {
+    margin-top: 0px;
+    font-size: 27px;
 }
 
-.Roster__Delete {
-    padding: 0;
+.Roster__TableHeader {
+    height: 1.5rem;
+}
+.Roster__TableData {
+    height: 1.5rem;
 }
 
-.Roster__DeleteButton {
+// table head styles
+.Roster__TableHead-No {    
+    width: 1rem;    
+}
+.Roster__TableHead-Name {
+    width: 25rem;
+}
+.Roster__TableHead-Delete {
+    width: 1.5rem;
+}
+
+// button style
+.Roster__TableData-deletebutton {
     @include button;
     width: 100%;
-    height: 100%;    
+    margin-bottom: 2px;
 }

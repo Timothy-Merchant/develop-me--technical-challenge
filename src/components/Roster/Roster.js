@@ -1,39 +1,27 @@
 import '../../styles/Roster.scss';
 
-const Roster = () => {
+const Roster = ({ players }) => {
     return (
         <div className="Roster__Wrapper">
             <h1 className="Roster__Header">Player Roster</h1>
             <table>
                 <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th></th>
+                    <tr className="Roster__TableHeader">
+                        <th className="Roster__TableHead-No">No.</th>
+                        <th className="Roster__TableHead-Name">Name</th>
+                        <th className="Roster__TableHead-Delete"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hello World</td>
-                        <td className="Roster__Delete">
-                            <button className="Roster__DeleteButton">✖</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Hello World</td>
-                        <td className="Roster__Delete">
-                            <button className="Roster__DeleteButton">✖</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Hello World</td>
-                        <td className="Roster__Delete">
-                            <button className="Roster__DeleteButton">✖</button>
-                        </td>
-                    </tr>
+                    {players.map((player, index) => (
+                        <tr key={index} className="Roster__TableData">
+                            <td>{index + 1}</td>
+                            <td>{player}</td>
+                            <td>
+                                <button className="Roster__TableData-deletebutton">✖</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
