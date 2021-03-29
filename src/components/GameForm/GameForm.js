@@ -1,7 +1,7 @@
 import '../../styles/GameForm.scss';
 import { useState } from "react";
 
-const GameForm = ({ createPlayer, players }) => {
+const GameForm = ({ createPlayer, players, startGame }) => {
 
     const [playerName, setPlayerName] = useState("");
     const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false, tooManyPlayers: false });
@@ -40,10 +40,11 @@ const GameForm = ({ createPlayer, players }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(players);
 
-        if (!errors.tooFewPlayers && !errors.tooManyPlayers && !errors.unevenPlayers) {
-            console.log("hello world");
+        if (!errors.tooFewPlayers &&
+            !errors.tooManyPlayers &&
+            !errors.unevenPlayers) {
+            startGame(players);
         }
     }
 
@@ -56,9 +57,7 @@ const GameForm = ({ createPlayer, players }) => {
                     <button type="button" onClick={handlePlayerCreate} className="GameForm__Button">Add Player</button>
                     <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
                     {Object.keys(errors).map((error, index) =>
-                    (errors[error] ?
-                        <p key={index} className="GameForm__Error">{errorTexts[error]}</p>
-                        : null))}
+                        (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
                 </div>
             </form>
         </>

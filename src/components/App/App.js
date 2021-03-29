@@ -9,8 +9,8 @@ const App = () => {
     <div className="pageStyle">
       <GameForm />
       <Roster />
-      <MatchBox />
       <TournamentTree />
+      <MatchBox />
     </div>
   );
 }

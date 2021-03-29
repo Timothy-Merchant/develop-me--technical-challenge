@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import GameForm from "./GameForm";
-import { createPlayer } from "../../data/actions/state"
+import { createPlayer, startGame } from "../../data/actions/state"
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createPlayer: (data) => dispatch(createPlayer(data))
+        createPlayer: (data) => dispatch(createPlayer(data)),
+        startGame: (data) => dispatch(startGame(data))
     }
 }
 
