@@ -1,11 +1,26 @@
 import '../../styles/GameForm.scss';
+import { useState } from "react";
 
-const GameForm = () => {
+const GameForm = ({ createPlayer }) => {
+
+    const [playerName, setPlayerName] = useState("");
+
+    const handleNameInput = (e) => {
+        const nameInput = e.currentTarget.value;
+        setPlayerName(nameInput);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createPlayer(playerName);
+        console.log(playerName)
+    }
+
     return (
-        <form action="" method="get" className="GameForm">
+        <form onSubmit={handleSubmit} action="" method="get" className="GameForm">
             <div className="GameForm__Entry">
-                <label className="GameForm__Label" for="name">Enter player name: </label>
-                <input type="text" className="GameForm__Input" name="name" id="name" required></input>
+                <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
+                <input value={playerName} onChange={handleNameInput} type="text" className="GameForm__Input" name="name" id="name" required></input>
                 <button className="GameForm__Button">Add Player</button>
                 <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
             </div>
