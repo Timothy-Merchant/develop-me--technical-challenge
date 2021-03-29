@@ -1,0 +1,40 @@
+{
+    "data": {
+        "games": [
+            {
+                "id": 1,
+                "player1": {
+                    "id": 1,
+                    "name": "Paul Drench",
+                    "score": 21
+                },
+                "player2": {
+                    "id": 2,
+                    "name": "Kate Fox",
+                    "score": 21
+                },
+                "deuce": true,
+                "server": 2,
+                "winner": 0,
+                "concluded": true
+            },
+            {
+                "id": 2,
+                "player1": {
+                    "id": 1,
+                    "name": "Paul Drench",
+                    "score": 21
+                },
+                "player2": {
+                    "id": 2,
+                    "name": "Kate Fox",
+                    "score": 21
+                },
+                "deuce": true,
+                "server": 2,
+                "winner": 0,
+                "concluded": true
+            }
+        ]
+    }
+}

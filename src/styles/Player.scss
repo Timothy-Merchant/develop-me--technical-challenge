@@ -17,9 +17,9 @@
 .Player__Button {
     @include button;
     width: 3rem;
-    height: 3rem;
+    height: 3rem;    
     border: 1px solid $GreenMid;        
-    font-size: 2.5rem;  
+    font-size: 2.5rem;          
     font-family: 'Courier New', Courier, monospace;   
     border-radius: 100%;   
 }
