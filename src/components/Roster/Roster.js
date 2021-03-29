@@ -1,6 +1,6 @@
 import '../../styles/Roster.scss';
 
-const Roster = ({ players }) => {
+const Roster = ({ players, deletePlayer }) => {
     return (
         <div className="Roster__Wrapper">
             <h1 className="Roster__Header">Player Roster</h1>
@@ -18,7 +18,7 @@ const Roster = ({ players }) => {
                             <td>{index + 1}</td>
                             <td>{player}</td>
                             <td>
-                                <button className="Roster__TableData-deletebutton">✖</button>
+                                <button onClick={() => deletePlayer(index)} className="Roster__TableData-deletebutton">✖</button>
                             </td>
                         </tr>
                     ))}

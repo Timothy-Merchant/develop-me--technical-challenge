@@ -13,7 +13,7 @@ const GameForm = ({ createPlayer }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         createPlayer(playerName);
-        console.log(playerName)
+        setPlayerName("");
     }
 
     return (
