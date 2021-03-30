@@ -6,10 +6,10 @@ const deletePlayer = (state, { index }) => ({
 const setupNewRound = (state, { roundID, round }) => {
 
     const newRounds = [...state.rounds];
-    newRounds[roundID].games = round.games;    
+    newRounds[roundID].games = round.games;
 
     return {
-        ...state,        
+        ...state,
         rounds: newRounds
     }
 }
@@ -22,13 +22,18 @@ const reducer = (state, action) => {
             rounds: action.rounds,
             games: action.games
         }
-        case "NEW_ROUND": return setupNewRound(state, action);
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]
         };
         case "DELETE_PLAYER": return deletePlayer(state, action);
         default: return state;
+        case "NEW_ROUND": return setupNewRound(state, action);
+        case "END_GAME": return {
+            ...state,
+            gameConcluded: true,
+            champion: action.winner
+        }
     }
 }
 

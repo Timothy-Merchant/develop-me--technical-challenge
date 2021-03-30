@@ -74,6 +74,15 @@ export const deletePlayer = (data) => {
     }
 }
 
+export const endGame = (winner) => {
+
+    return {
+        type: "END_GAME",
+        winner: winner
+    }
+}
+
+// HELPER FUNCTIONS
 
 const makeNewGames = (newPlayers) => {
 

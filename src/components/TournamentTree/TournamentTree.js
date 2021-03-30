@@ -1,10 +1,11 @@
 import '../../styles/TournamentTree.scss';
 import Pairing from '../Pairing';
 
-const TournamentTree = ({ gameStarted, games, rounds, endRound }) => {
+const TournamentTree = ({ gameStarted, games, rounds, endRound, endGame }) => {
 
     // TEST FUNCTION FOR COMPLETING ROUNDS
     const completeRound = (round) => {
+
 
         const testRound = { ...round, complete: true };
 
@@ -28,7 +29,10 @@ const TournamentTree = ({ gameStarted, games, rounds, endRound }) => {
             };
         }
 
-        endRound(testRound)
+        // If this is the last game, then end the game, if not, end the round
+        testRound.games.length === 1 ?
+            endGame(testRound.games[0].player1.won === 1 ? testRound.games[0].player1 : testRound.games[0].player2) :
+            endRound(testRound)
     }
 
     return (

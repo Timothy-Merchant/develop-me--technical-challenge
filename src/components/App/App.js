@@ -4,7 +4,7 @@ import MatchBox from '../MatchBox/MatchBox';
 import Roster from '../Roster';
 import TournamentTree from '../TournamentTree';
 
-const App = () => {
+const App = (gameConcluded) => {
   return (
     <div className="pageStyle">
       <GameForm />
