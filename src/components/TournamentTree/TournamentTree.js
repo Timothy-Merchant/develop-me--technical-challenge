@@ -5,9 +5,9 @@ const TournamentTree = ({ gameStarted, games, rounds }) => {
 
     return (
         gameStarted ?
-            <div className="TournamentTree__Left">
+            <div className="TournamentTree">
                 {rounds.map((round, index) => (
-                    <div key={index} className="TournamentTree__QuarterFinals">
+                    <div key={index}>
                         <PairingRow round={round} roundNumber={index} />
                     </div>
                 ))}
