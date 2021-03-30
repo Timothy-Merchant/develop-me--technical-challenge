@@ -2,7 +2,7 @@ const initial = {
     gameStarted: false,
     players: [],
     games: [],
-    rounds: 0,
+    rounds: [],
     errors: {
         invalidName: false,
         tooFewPlayers: false,
