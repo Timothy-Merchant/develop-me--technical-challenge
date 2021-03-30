@@ -34,20 +34,34 @@ export const startGame = (players) => {
     // Set the first round to contain all the games.
     let rounds = [{ games: [...mergedGames] }];
 
-    //Add an empty round object for the rest of the rounds to follow.
+    //Add a round object for each of the rounds to follow.
     let games = mergedGames.length;
 
     while (games > 1) {
-        games = games / 2;        
-        rounds.push({ games: [] })
+        games = games / 2;
+
+        //Populate the round object with empty games, so we can populate the display
+        let newRoundGames = [];
+
+        for (let i = 0; i < games; i++) {
+            newRoundGames.push({
+                player1: "",
+                player2: "",
+                deuce: 0,
+                service: 1,
+                complete: 0
+            })
+        }
+
+        rounds.push({ games: [...newRoundGames] })
     }
 
 
-    // Start the game with the games and number of rounds set up
+    // Start the game with the games and rounds set up
     return {
         type: "START_GAME",
         games: mergedGames,
-        rounds: rounds,        
+        rounds: rounds,
     }
 }
 
