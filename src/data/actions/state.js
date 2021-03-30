@@ -75,7 +75,11 @@ export const deletePlayer = (data) => {
 }
 
 
-const makeNewGames = (players) => {
+const makeNewGames = (newPlayers) => {
+
+    // Reset score and won for players moving to next round
+    let players = newPlayers.map((player, index) => ({ ...player, won: 0, score: 0 }))
+
     // Slice the array of names into two halves, then create new player objects using the passed in names
     let half = Math.floor(players.length / 2)
     let player1s = players.slice(0, half);

@@ -16,9 +16,15 @@ const TournamentTree = ({ gameStarted, games, rounds, endRound }) => {
                     complete: true
                 };
             }
+
             testRound.games[i].player1 = {
                 ...testRound.games[i].player1,
                 won: 1
+            };
+
+            testRound.games[i].player2 = {
+                ...testRound.games[i].player2,
+                won: 2
             };
         }
 
