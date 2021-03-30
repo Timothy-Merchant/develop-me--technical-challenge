@@ -8,7 +8,8 @@ const initial = {
         invalidName: false,
         tooFewPlayers: false,
         unevenPlayers: false
-    }
+    },
+    champion: {}
 }
 
 export default initial
