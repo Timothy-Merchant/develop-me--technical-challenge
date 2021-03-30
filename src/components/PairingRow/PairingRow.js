@@ -1,14 +1,14 @@
 import '../../styles/PairingRow.scss';
 import Pairing from '../Pairing';
 
-const PairingRow = ({ matches, title }) => {
+const PairingRow = ({ games, title }) => {
     return (
         <>
             <div className="PairingRow">
                 <h1 className="PairingRow__title">{title}</h1>
-                {matches.map((match, index) => (
-                    <Pairing key={index} />
-                ))}                
+                {games.map((game, index) => (
+                    <Pairing game={game} key={index} />
+                ))}
             </div>
         </>
     );

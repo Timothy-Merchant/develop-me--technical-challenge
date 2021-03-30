@@ -3,6 +3,8 @@ import TournamentTree from "./TournamentTree";
 
 const mapStateToProps = state => {
     return {
+        gameStarted: state.gameStarted,
+        games: state.games
     }
 }
 

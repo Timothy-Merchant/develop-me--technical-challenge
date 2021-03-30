@@ -4,7 +4,7 @@ import { useState } from "react";
 const GameForm = ({ createPlayer, players, startGame }) => {
 
     const [playerName, setPlayerName] = useState("");
-    const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false, tooManyPlayers: false });
+    const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false });
 
     const errorTexts = {
         invalidName: "Please enter a name between 3 and 15 characters",
@@ -20,8 +20,7 @@ const GameForm = ({ createPlayer, players, startGame }) => {
 
     const validatePlayers = (players) => setErrors({
         ...errors,
-        tooFewPlayers: players.length < 1,
-        tooManyPlayers: players.length > 10,
+        tooFewPlayers: players.length < 1,        
         unevenPlayers: players.length % 2 === 0
     });
 

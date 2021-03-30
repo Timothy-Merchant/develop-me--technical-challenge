@@ -1,10 +1,12 @@
 const initial = {
+    gameStarted: false,
     players: [],
+    games: [],
+    rounds: 0,
     errors: {
         invalidName: false,
         tooFewPlayers: false,
-        unevenPlayers: false,
-        tooManyPlayers: false
+        unevenPlayers: false
     }
 }
 

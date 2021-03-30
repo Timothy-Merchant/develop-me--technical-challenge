@@ -3,6 +3,7 @@ import PairingRow from "./PairingRow";
 
 const mapStateToProps = state => {
     return {
+        games: state.games
     }
 }
 

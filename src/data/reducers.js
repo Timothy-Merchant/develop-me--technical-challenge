@@ -5,8 +5,16 @@ export const deletePlayer = (state, { index }) => ({
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "START_GAME": return { ...state, games: action.games }
-        case "CREATE_PLAYER": return { ...state, players: [...state.players, action.newPlayer] };
+        case "START_GAME": return {
+            ...state,
+            gameStarted: true,
+            rounds: action.rounds,
+            games: action.games
+        }
+        case "CREATE_PLAYER": return {
+            ...state,
+            players: [...state.players, action.newPlayer]
+        };
         case "DELETE_PLAYER": return deletePlayer(state, action);
         default: return state;
     }
