@@ -49,13 +49,20 @@ export const startGame = (players) => {
 
 export const endRound = (data) => {
 
-    const newRoundID = data.id + 1;
     const newGames = makeNewGames(data.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
+
+    const newRound = {
+        id: data.id,
+        games: [...newGames],
+        complete: false
+    }
+
+    console.log(newGames)
 
     return {
         type: "NEW_ROUND",
-        round: newRoundID,
-        games: newGames
+        roundID: data.id,
+        round: newRound
     }
 }
 

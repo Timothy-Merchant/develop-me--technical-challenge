@@ -1,7 +1,18 @@
-export const deletePlayer = (state, { index }) => ({
+const deletePlayer = (state, { index }) => ({
     ...state,
     players: state.players.filter((player, i) => index !== i)
 })
+
+const setupNewRound = (state, { roundID, round }) => {
+
+    const newRounds = [...state.rounds];
+    newRounds[roundID].games = round.games;    
+
+    return {
+        ...state,        
+        rounds: newRounds
+    }
+}
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -11,6 +22,7 @@ const reducer = (state, action) => {
             rounds: action.rounds,
             games: action.games
         }
+        case "NEW_ROUND": return setupNewRound(state, action);
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]
