@@ -31,22 +31,23 @@ export const startGame = (players) => {
         complete: 0
     }))
 
-    // Calculate the number of rounds based on the number of games
-    let rounds = mergedGames.length;
-    let roundCounter = 1;
-    let roundsArray = [1];
+    // Set the first round to contain all the games.
+    let rounds = [{ games: [...mergedGames] }];
 
-    while (rounds > 1) {
-        rounds = rounds / 2;
-        roundCounter += 1;
-        roundsArray = [...roundsArray, roundCounter];
+    //Add an empty round object for the rest of the rounds to follow.
+    let games = mergedGames.length;
+
+    while (games > 1) {
+        games = games / 2;        
+        rounds.push({ games: [] })
     }
+
 
     // Start the game with the games and number of rounds set up
     return {
         type: "START_GAME",
         games: mergedGames,
-        rounds: roundsArray
+        rounds: rounds,        
     }
 }
 

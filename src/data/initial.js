@@ -1,7 +1,7 @@
 const initial = {
     gameStarted: false,
     players: [],
-    games: [],
+    games: [],    
     rounds: [],
     errors: {
         invalidName: false,

@@ -1,7 +1,8 @@
 import '../../styles/PairingRow.scss';
 import Pairing from '../Pairing';
 
-const PairingRow = ({ games, title }) => {
+const PairingRow = ({ title, games }) => {    
+
     return (
         <>
             <div className="PairingRow">

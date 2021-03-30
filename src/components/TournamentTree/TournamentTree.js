@@ -3,16 +3,14 @@ import PairingRow from '../PairingRow';
 
 const TournamentTree = ({ gameStarted, games, rounds }) => {
 
-
-
     return (
         gameStarted ?
             <div className="TournamentTree__Left">
                 {rounds.map((round, index) => (
                     <div key={index} className="TournamentTree__QuarterFinals">
-                        <PairingRow title={"Quarter Finals"} />
+                        <PairingRow />
                     </div>
-                ))}                
+                ))}
             </div> :
             <></>
     );
