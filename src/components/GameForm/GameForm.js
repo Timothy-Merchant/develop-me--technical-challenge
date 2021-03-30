@@ -54,6 +54,8 @@ const GameForm = ({ createPlayer, players, startGame }) => {
         createPlayer("alfred");
         createPlayer("jenny");
         createPlayer("joanne");
+        createPlayer("jessica");
+        createPlayer("jemima");
     }
 
     return (
@@ -68,7 +70,7 @@ const GameForm = ({ createPlayer, players, startGame }) => {
                         (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
                 </div>
             </form>
-            <button onClick={testPlayerCreate} className="GameForm__Button">Add 6 Players</button>
+            <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Players</button>
         </>
     );
 }

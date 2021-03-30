@@ -10,8 +10,9 @@ const TournamentTree = ({ gameStarted, games, rounds }) => {
                     <div key={index}>
                         <PairingRow round={round} roundNumber={index} />
                     </div>
-                ))}
-            </div> :
+                ))}                
+            </div>
+            :
             <></>
     );
 }
