@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import TournamentTree from "./TournamentTree";
+import { endRound } from "../../data/actions/state"
 
 const mapStateToProps = state => {
     return {
@@ -9,4 +10,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(TournamentTree);
+const mapDispatchToProps = dispatch => {
+    return {
+        endRound: (data) => dispatch(endRound(data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TournamentTree);
