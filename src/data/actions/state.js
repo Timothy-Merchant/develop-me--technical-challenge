@@ -10,7 +10,7 @@ export const startGame = (players) => {
     const newGames = makeNewGames(players);
 
     // Set the first round to contain all the games.
-    let rounds = [{ id: 1, games: [...newGames], complete: false }];
+    let rounds = [{ id: 1, games: newGames, complete: false }];
 
     //Add a round object for each of the rounds to follow.
     let games = newGames.length;
@@ -53,7 +53,7 @@ export const endRound = (data) => {
 
     const newRound = {
         id: data.id,
-        games: [...newGames],
+        games: newGames,
         complete: false
     }
 
@@ -78,18 +78,8 @@ export const deletePlayer = (data) => {
 const makeNewGames = (players) => {
     // Slice the array of names into two halves, then create new player objects using the passed in names
     let half = Math.floor(players.length / 2)
-    let player1s = players.slice(0, half).map((player, index) =>
-    ({
-        name: player,
-        score: 0,
-        won: 0
-    }));
-    let player2s = players.slice(half, players.length).map((player, index) =>
-    ({
-        name: player,
-        score: 0,
-        won: 0
-    }));
+    let player1s = players.slice(0, half);
+    let player2s = players.slice(half, players.length);
 
     // Create an array of new 'game' objects that contain two player objects for each competitor
     let mergedGames = player1s.map((player1, index) => ({

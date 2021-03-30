@@ -43,7 +43,14 @@ const GameForm = ({ createPlayer, players, startGame }) => {
         if (!errors.tooFewPlayers &&
             !errors.tooManyPlayers &&
             !errors.unevenPlayers) {
-            startGame(players);
+
+            // pass up an array of player objects with name properties from the user
+            const rosterList = players.map((player, index) => ({
+                name: player,
+                score: 0,
+                won: 0
+            }));
+            startGame(rosterList);
         }
     }
 
