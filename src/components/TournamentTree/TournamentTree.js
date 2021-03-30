@@ -29,12 +29,8 @@ const TournamentTree = ({ gameStarted, games, rounds, endRound, endGame }) => {
             };
         }
 
-        endGame(testRound.games[0].player1.won === 1 ? testRound.games[0].player1 : testRound.games[0].player2)
-
         // If this is the last game, then end the game, if not, end the round
-        // testRound.games.length === 1 ?
-        //     endGame(testRound.games[0].player1.won === 1 ? testRound.games[0].player1 : testRound.games[0].player2) :
-        //     endRound(testRound)
+        testRound.games.length < 2 ? endGame(testRound) : endRound(testRound)
     }
 
     return (

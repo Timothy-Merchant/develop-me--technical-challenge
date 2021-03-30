@@ -47,6 +47,14 @@ export const startGame = (players) => {
     }
 }
 
+export const deletePlayer = (data) => {
+
+    return {
+        type: "DELETE_PLAYER",
+        index: data
+    }
+}
+
 export const endRound = (data) => {
 
     const newGames = makeNewGames(data.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
@@ -66,19 +74,16 @@ export const endRound = (data) => {
     }
 }
 
-export const deletePlayer = (data) => {
 
-    return {
-        type: "DELETE_PLAYER",
-        index: data
-    }
-}
+export const endGame = (round) => {
 
-export const endGame = (winner) => {
+    // Determine the tournament champion (winner of the final)
+    const winner = round.games[0].player1.won === 1 ? round.games[0].player1 : round.games[0].player2
 
     return {
         type: "END_GAME",
-        winner: winner
+        winner: winner,
+        round: round,
     }
 }
 
