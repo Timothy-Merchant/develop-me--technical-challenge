@@ -20,7 +20,7 @@ const GameForm = ({ createPlayer, players, startGame }) => {
 
     const validatePlayers = (players) => setErrors({
         ...errors,
-        tooFewPlayers: players.length < 1,        
+        tooFewPlayers: players.length < 1,
         unevenPlayers: players.length % 2 === 0
     });
 
@@ -47,6 +47,15 @@ const GameForm = ({ createPlayer, players, startGame }) => {
         }
     }
 
+    const testPlayerCreate = (e) => {
+        createPlayer("fred");
+        createPlayer("james");
+        createPlayer("pete");
+        createPlayer("alfred");
+        createPlayer("jenny");
+        createPlayer("joanne");
+    }
+
     return (
         <>
             <form onSubmit={handleSubmit} action="" method="get" className="GameForm">
@@ -59,6 +68,7 @@ const GameForm = ({ createPlayer, players, startGame }) => {
                         (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
                 </div>
             </form>
+            <button onClick={testPlayerCreate} className="GameForm__Button">Add 6 Players</button>
         </>
     );
 }
