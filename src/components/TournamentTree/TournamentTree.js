@@ -8,7 +8,7 @@ const TournamentTree = ({ gameStarted, games, rounds }) => {
             <div className="TournamentTree__Left">
                 {rounds.map((round, index) => (
                     <div key={index} className="TournamentTree__QuarterFinals">
-                        <PairingRow />
+                        <PairingRow round={round} roundNumber={index} />
                     </div>
                 ))}
             </div> :
