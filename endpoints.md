@@ -1,13 +1,20 @@
-GET api/players
-<!-- Gets all players for distributing them to tournament bracket -->
+<!-- Post Players -->
 POST api/players
-<!-- Send array of players to the API when Roster component is submitted -->
+<!-- This will then create rounds and games -->
 
-GET api/games
-<!-- Get a list of all games for determining tournament arrangement  -->
-GET api/games/1
-<!-- Gets current game information for display on the frontend -->
-PUT api/games/1
-<!-- Update current game information (when changing score/service/deuce/winner) -->
-POST api/games/
-<!-- Create a game with two players -->
+Get Rounds
+<!-- Get all rounds -->
+GET api/rounds
+<!-- Get a single round -->
+GET api/rounds/1
+<!-- Get all games for a single round -->
+GET api/rounds/1/games
+<!-- Get a single game -->
+GET api/rounds/1/games/1
+<!-- Get players for a specific game -->
+GET api/rounds/1/games/1/players
+
+One to Many relationships:
+
+Rounds (Have Many Games) 
+Games (Have Many Players)
