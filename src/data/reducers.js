@@ -3,6 +3,19 @@ const deletePlayer = (state, { index }) => ({
     players: state.players.filter((player, i) => index !== i)
 })
 
+const increaseScore = (state, action) => {
+
+    const updatedGame = { ...state.currentGame }
+    action.ID === 1 ?
+        updatedGame.player1.score += 1 :
+        updatedGame.player2.score += 1;
+
+    return {
+        ...state,
+        currentGame: updatedGame
+    }
+}
+
 const setupNewRound = (state, { roundID, round }) => {
 
     // Update the rounds with the current round's game scores to rerender display
@@ -46,6 +59,7 @@ const reducer = (state, action) => {
             players: [...state.players, action.newPlayer]
         };
         case "DELETE_PLAYER": return deletePlayer(state, action);
+        case "INCREASE_SCORE": return increaseScore(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_GAME": return endGame(state, action);
         default: return state;

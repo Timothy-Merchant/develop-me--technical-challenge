@@ -37,8 +37,6 @@ export const startGame = (players) => {
         rounds.push({ id: idCounter, games: [...newRoundGames], complete: false })
     }
 
-    console.log(rounds);
-
     // Start the game with the games and rounds set up
     return {
         type: "START_GAME",
@@ -52,6 +50,15 @@ export const deletePlayer = (data) => {
     return {
         type: "DELETE_PLAYER",
         index: data
+    }
+}
+
+export const increaseScore = (data) => {
+
+    return {
+        type: "INCREASE_SCORE",
+        player: data.player,
+        ID: data.ID
     }
 }
 
