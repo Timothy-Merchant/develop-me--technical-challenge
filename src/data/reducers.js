@@ -56,7 +56,8 @@ const startNewMatch = (state, { match }) => {
     console.log(nextGame)
 
     return {
-        ...state
+        ...state,
+        currentGame: nextGame
     }
 }
 
