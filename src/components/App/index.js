@@ -4,6 +4,7 @@ import App from "./App";
 const mapStateToProps = state => {
     return {
         gameConcluded: state.gameConcluded,
+        gameStarted: state.gameStarted
     }
 }
 

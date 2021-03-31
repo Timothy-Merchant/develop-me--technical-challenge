@@ -37,16 +37,18 @@ const reducer = (state, action) => {
             ...state,
             gameStarted: true,
             rounds: action.rounds,
-            games: action.games
+            games: action.games,
+            currentRound: action.rounds[0],
+            currentGame: action.games[0]
         }
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]
         };
         case "DELETE_PLAYER": return deletePlayer(state, action);
-        default: return state;
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_GAME": return endGame(state, action);
+        default: return state;
     }
 }
 

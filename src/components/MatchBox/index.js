@@ -4,7 +4,8 @@ import MatchBox from "./MatchBox";
 const mapStateToProps = state => {
     return {
         currentRound: state.currentRound,
-        currentGame: state.currentGame
+        currentGame: state.currentGame,
+        gameStarted: state.gameStarted
     }
 }
 
