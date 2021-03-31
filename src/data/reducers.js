@@ -48,6 +48,8 @@ const setupNewRound = (state, { newRound, match }) => {
 
 const startNewMatch = (state, { match }) => {
 
+    console.log(match);
+
     const games = { ...state.currentRound.games };
     const nextGame = games[match.id + 1];
     const rounds = [...state.rounds];
