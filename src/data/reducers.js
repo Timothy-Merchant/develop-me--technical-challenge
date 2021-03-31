@@ -22,7 +22,7 @@ const endGame = (state, { winner, round }) => {
 
     // Update the final game's score to rerender the finals score display
     const newRounds = [...state.rounds];
-    newRounds[2].games[0] = { ...round.games[0] };    
+    newRounds[round.id - 1].games[0] = { ...round.games[0] };
 
     return {
         ...state,
@@ -33,7 +33,7 @@ const endGame = (state, { winner, round }) => {
 }
 
 const setupNewRound = (state, { newRound, match }) => {
-    
+
     const rounds = [...state.rounds];
     rounds[state.currentRound.id - 1].games[match.id] = { ...match };
     rounds[newRound.id].games = [...newRound.games];
@@ -52,9 +52,6 @@ const startNewMatch = (state, { match }) => {
     const nextGame = games[match.id + 1];
     const rounds = [...state.rounds];
     rounds[state.currentRound.id - 1].games[match.id] = { ...match };
-
-    console.log(rounds)
-
 
     return {
         ...state,
