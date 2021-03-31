@@ -7,7 +7,7 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
     const completeMatch = () => {
         let totalMatches = currentRound.games.length - 1
         currentGame.id === totalMatches ?
-            endRound(currentRound) :
+            endRound({ currentRound, currentGame }) :
             nextMatch(currentGame)
     }
 

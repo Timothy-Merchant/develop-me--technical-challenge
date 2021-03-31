@@ -17,19 +17,6 @@ const increaseScore = (state, action) => {
     }
 }
 
-const setupNewRound = (state, { roundID, round }) => {
-
-    // Update the rounds with the current round's game scores to rerender display
-    const newRounds = [...state.rounds];
-    newRounds[roundID].games = round.games;
-
-    return {
-        ...state,
-        currentRound: newRounds[roundID],
-        currentGame: newRounds[roundID].games[0],
-        rounds: newRounds
-    }
-}
 
 const endGame = (state, { winner, round }) => {
 
@@ -45,13 +32,29 @@ const endGame = (state, { winner, round }) => {
     }
 }
 
-const startNewMatch = (state, { match }) => {
+const setupNewRound = (state, { newRound, match }) => {
 
-    const roundLength = state.currentRound.games.length - 1
+    console.log(newRound)
+    console.log(newRound.id)
+
+    const rounds = [...state.rounds];
+    rounds[state.currentRound.id - 1].games[match.id] = { ...match };
+    rounds[newRound.id].games = [ ...newRound.games ];
+
+    return {
+        ...state,
+        currentRound: rounds[newRound.id],
+        currentGame: rounds[newRound.id].games[0],
+        rounds: rounds
+    }
+}
+
+const startNewMatch = (state, { match }) => {
+    
     const games = { ...state.currentRound.games };
     const nextGame = games[match.id + 1];
     const rounds = [...state.rounds];
-    rounds[state.currentRound.id - 1].games[match.id] = {...match};
+    rounds[state.currentRound.id - 1].games[match.id] = { ...match };
 
     console.log(rounds)
 

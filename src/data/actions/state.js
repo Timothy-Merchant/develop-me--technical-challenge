@@ -69,22 +69,22 @@ export const completeMatch = (data) => {
     }
 }
 
-export const endRound = (data) => {
+export const endRound = ({ currentRound, currentGame }) => {
 
-    const newGames = makeNewGames(data.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
+    const newGames = makeNewGames(currentRound.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
 
     const newRound = {
-        id: data.id,
+        id: currentRound.id,
         games: newGames,
         complete: false
     }
 
-    console.log(newGames)
+    console.log(newRound.id)
 
     return {
         type: "NEW_ROUND",
-        roundID: data.id,
-        round: newRound
+        newRound: newRound,
+        match: currentGame
     }
 }
 
