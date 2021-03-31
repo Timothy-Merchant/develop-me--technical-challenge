@@ -1,11 +1,12 @@
 import '../../styles/Player.scss';
 
-const Player = () => {
+const Player = ({ player }) => {
+
     return (
         <div className="Player__Wrapper">
-            <h1>Player 1</h1>
+            <h1>{player.name}</h1>
             <p>Score</p>
-            <p className="Player__Score">21</p>            
+            <p className="Player__Score">{player.score}</p>
             <button className="Player__Button">+</button>
         </div>
     );
