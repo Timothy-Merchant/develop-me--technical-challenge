@@ -50,14 +50,16 @@ const startNewMatch = (state, { match }) => {
     const roundLength = state.currentRound.games.length - 1
     const games = { ...state.currentRound.games };
     const nextGame = games[match.id + 1];
+    const rounds = [...state.rounds];
+    rounds[state.currentRound.id - 1].games[match.id] = {...match};
 
-    console.log(roundLength)
-    console.log(games)
-    console.log(nextGame)
+    console.log(rounds)
+
 
     return {
         ...state,
-        currentGame: nextGame
+        currentGame: nextGame,
+        rounds: rounds
     }
 }
 
