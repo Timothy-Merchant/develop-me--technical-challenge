@@ -1,14 +1,15 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 
-const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore }) => {
-
+const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endGame }) => {
 
     const completeMatch = () => {
-        let totalMatches = currentRound.games.length - 1
-        currentGame.id === totalMatches ?
-            endRound({ currentRound, currentGame }) :
-            nextMatch(currentGame)
+
+        currentRound.id === rounds.length && currentGame.id === currentRound.games.length - 1 ?
+            endGame(currentRound) :
+            currentGame.id === currentRound.games.length - 1 ?
+                endRound({ currentRound, currentGame }) :
+                nextMatch(currentGame)
     }
 
     return (
