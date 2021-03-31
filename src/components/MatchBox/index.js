@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MatchBox from "./MatchBox";
-import { increaseScore } from "../../data/actions/state";
+import { increaseScore, completeMatch, endRound } from "../../data/actions/state";
 
 const mapStateToProps = state => {
     return {
@@ -12,7 +12,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        increaseScore: (data) => dispatch(increaseScore(data))
+        increaseScore: (data) => dispatch(increaseScore(data)),
+        nextMatch: (data) => dispatch(completeMatch(data)),
+        endRound: (data) => dispatch(endRound(data))
     }
 }
 

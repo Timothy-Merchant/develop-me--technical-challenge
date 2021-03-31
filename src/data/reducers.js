@@ -6,13 +6,14 @@ const deletePlayer = (state, { index }) => ({
 const increaseScore = (state, action) => {
 
     const updatedGame = { ...state.currentGame }
+
     action.ID === 1 ?
         updatedGame.player1.score += 1 :
         updatedGame.player2.score += 1;
 
     return {
         ...state,
-        currentGame: updatedGame
+        currentGame: updatedGame,
     }
 }
 
@@ -44,6 +45,21 @@ const endGame = (state, { winner, round }) => {
     }
 }
 
+const startNewMatch = (state, { match }) => {
+
+    const roundLength = state.currentRound.games.length - 1
+    const games = { ...state.currentRound.games };
+    const nextGame = games[match.id + 1];
+
+    console.log(roundLength)
+    console.log(games)
+    console.log(nextGame)
+
+    return {
+        ...state
+    }
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "START_GAME": return {
@@ -60,6 +76,7 @@ const reducer = (state, action) => {
         };
         case "DELETE_PLAYER": return deletePlayer(state, action);
         case "INCREASE_SCORE": return increaseScore(state, action);
+        case "END_MATCH": return startNewMatch(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_GAME": return endGame(state, action);
         default: return state;

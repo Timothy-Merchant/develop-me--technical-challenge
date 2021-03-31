@@ -1,8 +1,15 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 
-const MatchBox = ({ currentGame, currentRound, gameStarted, increaseScore }) => {
+const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore }) => {
 
+
+    const completeMatch = () => {
+        let totalMatches = currentRound.games.length - 1
+        currentGame.id === totalMatches ?
+            endRound(currentRound) :
+            nextMatch(currentGame)
+    }
 
     return (
         gameStarted ?
@@ -18,6 +25,7 @@ const MatchBox = ({ currentGame, currentRound, gameStarted, increaseScore }) => 
                     <p className="MatchBox__Alert">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
                     <p className="MatchBox__Alert">{currentGame.service === 2 ? "Service" : ""}</p>
                 </div>
+                <button onClick={completeMatch}>Complete Match</button>
             </div> :
             null
     );

@@ -62,6 +62,13 @@ export const increaseScore = (data) => {
     }
 }
 
+export const completeMatch = (data) => {
+    return {
+        type: "END_MATCH",
+        match: data
+    }
+}
+
 export const endRound = (data) => {
 
     const newGames = makeNewGames(data.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
@@ -108,6 +115,7 @@ const makeNewGames = (newPlayers) => {
 
     // Create an array of new 'game' objects that contain two player objects for each competitor
     let mergedGames = player1s.map((player1, index) => ({
+        id: index,
         player1: player1,
         player2: player2s[index],
         deuce: 0,
