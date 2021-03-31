@@ -11,6 +11,8 @@ const setupNewRound = (state, { roundID, round }) => {
 
     return {
         ...state,
+        currentRound: newRounds[roundID],
+        currentGame: newRounds[roundID].games[0],
         rounds: newRounds
     }
 }

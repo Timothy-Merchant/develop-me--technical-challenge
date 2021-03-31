@@ -4,6 +4,8 @@ const initial = {
     players: [],
     games: [],
     rounds: [],
+    currentRound: {},
+    currentGame: {},
     errors: {
         invalidName: false,
         tooFewPlayers: false,

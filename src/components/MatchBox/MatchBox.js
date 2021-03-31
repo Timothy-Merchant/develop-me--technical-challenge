@@ -1,7 +1,7 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 
-const MatchBox = () => {
+const MatchBox = ({ currentGame, currentRound }) => {
     return (
         <div className="MatchBox__Wrapper">
             <h1 className="MatchBox__Header">Quarter Finals - Round 1</h1>
