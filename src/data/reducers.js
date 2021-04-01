@@ -81,6 +81,7 @@ const reducer = (state, action) => {
         case "END_MATCH": return startNewMatch(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_GAME": return endGame(state, action);
+        case "SHOW_ROUNDS": return console.log(action.rounds);
         default: return state;
     }
 }

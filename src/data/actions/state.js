@@ -125,3 +125,16 @@ const makeNewGames = (newPlayers) => {
 
     return mergedGames
 }
+
+
+// API response functions
+
+export const showRounds = (data) => {
+
+    console.log(data);
+
+    return {
+        type: "SHOW_ROUNDS",
+        rounds: data
+    }
+}
