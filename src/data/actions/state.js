@@ -63,8 +63,6 @@ export const beginTournament = (data) => {
         }))
     }
 
-
-
     newGames.forEach(game => {
         console.log(game.id)
     });
