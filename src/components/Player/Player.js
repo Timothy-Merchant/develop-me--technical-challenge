@@ -7,7 +7,7 @@ const Player = ({ player, increaseScore }) => {
     }
 
     return (
-        <div className="Player__Wrapper">
+        <div className="Player__Wrapper">            
             <h1>{player.name}</h1>
             <p>Score</p>
             <p className="Player__Score">{player.score}</p>

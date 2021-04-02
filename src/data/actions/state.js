@@ -63,11 +63,8 @@ export const beginTournament = (data) => {
         games: games.map(game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) }))
     }
 
-
-    console.log(newTournament);
-
-    const currentRound = rounds[0];
-    const currentGame = games[0];
+    const currentRound = newTournament.rounds[0];
+    const currentGame = newTournament.games[0];
 
     return {
         type: "BEGIN_TOURNAMENT",
