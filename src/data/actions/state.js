@@ -46,6 +46,24 @@ export const startGameS = (players) => {
     }
 }
 
+export const beginTournament = (data) => {
+
+    const newRounds = data.rounds;
+    const newGames = data.games;
+    const newPlayers = data.players;
+
+    console.log(newRounds);
+    console.log(newGames);
+    console.log(newPlayers);
+
+    return {
+        type: "BEGIN_TOURNAMENT",
+        players: newPlayers,
+        games: newGames,
+        rounds: newRounds
+    }
+}
+
 export const deletePlayer = (data) => {
 
     return {

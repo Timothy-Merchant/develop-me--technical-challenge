@@ -1,5 +1,5 @@
 import axios from '../../axios'
-import { showRounds, startGameS } from "./state";
+import { showRounds, beginTournament } from "./state";
 
 export const createRound = (data) => {
 
@@ -93,7 +93,11 @@ export const startGame = (players) => {
                     })
 
                     // Dispatch a state action to begin the game on our frontend with our new API information                    
-                ))).then(() => console.log(roundsArray, gamesArray, playersArray));
+                ))).then(() => dispatch(beginTournament({
+                    players: playersArray,
+                    rounds: roundsArray,
+                    games: gamesArray
+                })));
             })
         })
     }
