@@ -1,5 +1,5 @@
 import axios from '../../axios'
-import { showRounds } from "./state";
+import { showRounds, startGameS } from "./state";
 
 export const createRound = (data) => {
 
@@ -14,6 +14,15 @@ export const createRound = (data) => {
 }
 
 export const startGame = (players) => {
+
+    /**
+     * This logic is for sending information to the API to setup the game on the backend
+     * Following this, the backend will return the tournament, rounds, games and players it has stored
+     * We can then use these respective IDs to update the API as the game progresses.
+     * There are two sections to this function, the logic for assembling new games, and the dispatch.
+     */
+
+    // 1. Logic for assembling new games.
 
     const newGames = makeNewGames(players);
 
@@ -47,13 +56,46 @@ export const startGame = (players) => {
         rounds.push({ id: idCounter, games: [...newRoundGames], complete: false })
     }
 
+    // 2. Dispatch to API
+
     return (dispatch) => {
 
+        // Create a store for games and players we receive back from the API
+        const gamesArray = [];
+        const playersArray = [];
+
+        // Send up our created rounds, games and associated players in JSON format
         axios.post("/tournaments", {
             "rounds": { ...rounds },
         }).then(({ data }) => {
-            console.log(data)
-        });
+
+            // Get back and store the tournament and tournament id from the API.
+            const tournament = data;
+            const tournamentID = tournament.id;
+
+            // Store each round in the tournament in roundsArray, with respective API ID.
+            return (axios.get(`/tournaments/${tournamentID}/rounds`)).then(({ data }) => {
+                const roundsArray = [...data];
+
+                // Store ecah game within the round in our gamesArray, with its respective API ID
+                Promise.all(roundsArray.map(round => (
+                    axios.get(`/tournaments/${tournamentID}/rounds/${round.id}/games`).then(({ data }) => {
+                        gamesArray.push([...data.data]);
+
+                        // Store ecah player within each game in our playersArray, with each respective API ID
+                        Promise.all([...data.data].map(game => (
+                            axios.get(`/tournaments/${tournamentID}/rounds/${round.id}/games/${game.id}/players`).then(({ data }) => {
+                                data.data.forEach(player => {
+                                    playersArray.push(player);
+                                })
+                            })
+                        )))
+                    })
+
+                    // Dispatch a state action to begin the game on our frontend with our new API information                    
+                ))).then(() => console.log(roundsArray, gamesArray, playersArray));
+            })
+        })
     }
 }
 
