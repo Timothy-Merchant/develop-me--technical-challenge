@@ -64,7 +64,7 @@ export const startGame = (players) => {
         axios.post("/tournaments", {
             "rounds": { ...rounds },
         }).then(({ data }) => {
-            console.log(data);
+            dispatch(beginTournament(data));
         })
     }
 }

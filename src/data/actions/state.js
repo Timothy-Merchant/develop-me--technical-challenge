@@ -48,35 +48,32 @@ export const startGameS = (players) => {
 
 export const beginTournament = (data) => {
 
-    const newRounds = data.rounds;
-    const newGames = data.games.flat();
-    const newPlayers = data.players;
+    const tournament = data[0];
+    const rounds = [...data[1]];
+    const games = [...data[2]];
+    const players = [...data[3]];
 
-    // Create a structure that's easy to work with for our frontend.
     const newTournament = {
-        rounds: newRounds.map(round => ({
-            games: newGames.filter(game => game.round_id === round.id)
-                .map(game => ({
-                    ...game,
-                    players: newPlayers.filter(player => player.game_id === game.id)
-                }))
-        }))
+        tournament: tournament,
+        rounds: rounds.map(round => ({
+            ...round,
+            games: games.filter(game => (game.round_id === round.id)).map
+                (game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) }))
+        })),
+        games: games.map(game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) }))
     }
 
-    newGames.forEach(game => {
-        console.log(game.id)
-    });
 
     console.log(newTournament);
-    console.log(newRounds);
-    console.log(newGames);
-    console.log(newPlayers);    
+
+    const currentRound = rounds[0];
+    const currentGame = games[0];
 
     return {
         type: "BEGIN_TOURNAMENT",
-        players: newPlayers,
-        games: newGames,
-        rounds: newRounds
+        tournament: { ...newTournament },
+        currentRound: { ...currentRound },
+        currentGame: { ...currentGame }
     }
 }
 
