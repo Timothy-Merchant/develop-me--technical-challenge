@@ -1,7 +1,7 @@
 import '../../styles/GameForm.scss';
 import { useState } from "react";
 
-const GameForm = ({ createPlayer, players, startGame, createRound }) => {
+const GameForm = ({ createPlayer, players, startGame }) => {
 
     const [playerName, setPlayerName] = useState("");
     const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false });
@@ -50,8 +50,7 @@ const GameForm = ({ createPlayer, players, startGame, createRound }) => {
                 score: 0,
                 won: 0
             }));
-            
-            createRound({ "complete": 0 });
+
             startGame(rosterList);
         }
     }
