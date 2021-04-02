@@ -85,19 +85,20 @@ export const startGame = (players) => {
                         // Store ecah player within each game in our playersArray, with each respective API ID
                         Promise.all([...data.data].map(game => (
                             axios.get(`/tournaments/${tournamentID}/rounds/${round.id}/games/${game.id}/players`).then(({ data }) => {
-                                data.data.forEach(player => {
+                                data.data.map(player => {
                                     playersArray.push(player);
+                                    return player;
                                 })
                             })
-                        )))
-                    })
 
-                    // Dispatch a state action to begin the game on our frontend with our new API information                    
-                ))).then(() => dispatch(beginTournament({
-                    players: playersArray,
-                    rounds: roundsArray,
-                    games: gamesArray
-                })));
+                            // Dispatch a state action to begin the game on our frontend with our new API information   
+                        ))).then(() => dispatch(beginTournament({
+                            players: playersArray,
+                            rounds: roundsArray,
+                            games: gamesArray
+                        })));
+                    })
+                )))
             })
         })
     }

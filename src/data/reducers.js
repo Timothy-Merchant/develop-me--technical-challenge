@@ -64,6 +64,7 @@ const startNewMatch = (state, { match }) => {
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case "BEGIN_TOURNAMENT": return {...state};
         case "START_GAME": return {
             ...state,
             gameStarted: true,
