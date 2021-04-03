@@ -121,12 +121,12 @@ export const endRound = (currentRound) => {
 export const endGame = (round) => {
 
     // Determine the tournament champion (winner of the final)
-    const winner = round.games[0].player1.won === 1 ? round.games[0].player1 : round.games[0].player2
+    const winner = round.games[0].players[0].won === 1 ? round.games[0].players[0] : round.games[0].players[1]
 
     return {
         type: "END_GAME",
         winner: winner,
-        round: round,
+        prevRound: round,
     }
 }
 

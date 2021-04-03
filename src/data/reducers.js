@@ -18,16 +18,16 @@ const increaseScore = (state, action) => {
 }
 
 
-const endGame = (state, { winner, round }) => {
+const endGame = (state, { winner, prevRound }) => {
 
     // Update the final game's score to rerender the finals score display
-    const newRounds = [...state.rounds];
-    newRounds[round.id - 1].games[0] = { ...round.games[0] };
+    // const newRounds = [...state.rounds];
+    // newRounds[round.id - 1].games[0] = { ...round.games[0] };
 
     return {
         ...state,
         gameConcluded: true,
-        rounds: newRounds,
+        rounds: state.rounds.map((round) => round.id === prevRound.id ? { ...prevRound } : round),
         champion: winner
     }
 }
@@ -37,12 +37,13 @@ const setupNewRound = (state, { newRound, currentRound }) => {
 
     return {
         ...state,
-        // currentRound: rounds[newRound.id],
-        // currentGame: rounds[newRound.id].games[0],
+        rounds: state.rounds.map((round) =>
+            round.id === newRound.id ? { ...newRound } :
+                round.id === currentRound.id ? { ...currentRound } : round),
+        currentRound: { ...newRound },
+        currentGame: { ...newRound.games[0] },
 
         // Update the previous round and new current round
-        rounds: state.rounds.map((round) =>
-            round.id === newRound.id ? {...newRound} : round.id === currentRound.id ? {...currentRound} : round)
     }
 }
 
