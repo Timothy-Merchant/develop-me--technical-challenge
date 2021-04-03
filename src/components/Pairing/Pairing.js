@@ -6,9 +6,7 @@ const Pairing = ({ game }) => {
         0: "--",
         1: "WON",
         2: "LOST"
-    }
-
-    console.log(game);
+    }    
 
     return (
         <table>

@@ -6,7 +6,6 @@ const TournamentTree = ({ gameStarted, games, rounds, endRound, endGame }) => {
     // TEST FUNCTION FOR COMPLETING ROUNDS
     const completeRound = (round) => {
 
-
         const testRound = { ...round, complete: true };
 
         for (let i = 0; i < testRound.games.length; i++) {
@@ -19,12 +18,12 @@ const TournamentTree = ({ gameStarted, games, rounds, endRound, endGame }) => {
             }
 
             testRound.games[i].player1 = {
-                ...testRound.games[i].player1,
+                ...testRound.games[i].players[0],
                 won: 1
             };
 
             testRound.games[i].player2 = {
-                ...testRound.games[i].player2,
+                ...testRound.games[i].players[1],
                 won: 2
             };
         }

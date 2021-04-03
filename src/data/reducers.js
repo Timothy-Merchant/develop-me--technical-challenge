@@ -32,17 +32,20 @@ const endGame = (state, { winner, round }) => {
     }
 }
 
-const setupNewRound = (state, { newRound, match }) => {
-
-    const rounds = [...state.rounds];
-    rounds[state.currentRound.id - 1].games[match.id] = { ...match };
-    rounds[newRound.id].games = [...newRound.games];
+// , match in parameters for MatchBox
+const setupNewRound = (state, { newRound, currentRound }) => {
 
     return {
         ...state,
-        currentRound: rounds[newRound.id],
-        currentGame: rounds[newRound.id].games[0],
-        rounds: rounds
+        // currentRound: rounds[newRound.id],
+        // currentGame: rounds[newRound.id].games[0],
+
+        // Update the previous round and new current round
+        rounds: state.rounds.map((round) =>
+            round.id === newRound.id ?
+                { ...round, games: [...newRound.games] } :
+                round.id === currentRound.id ?
+                    { ...currentRound } : { ...round })
     }
 }
 
@@ -66,7 +69,7 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "BEGIN_TOURNAMENT": return {
             ...state,
-            gameStarted: true,            
+            gameStarted: true,
             rounds: action.tournament.rounds,
             games: action.tournament.games,
             currentRound: action.currentRound,

@@ -98,12 +98,12 @@ export const completeMatch = (data) => {
     }
 }
 
-export const endRound = ({ currentRound, currentGame }) => {
+export const endRound = (currentRound) => {
 
-    const newGames = makeNewGames(currentRound.games.map(game => game.player1.won === 1 ? game.player1 : game.player2));
+    const newGames = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.player2));
 
     const newRound = {
-        id: currentRound.id,
+        id: currentRound.id + 1,
         games: newGames,
         complete: false
     }
@@ -113,7 +113,8 @@ export const endRound = ({ currentRound, currentGame }) => {
     return {
         type: "NEW_ROUND",
         newRound: newRound,
-        match: currentGame
+        currentRound: currentRound
+        // match: currentGame
     }
 }
 
@@ -145,8 +146,7 @@ const makeNewGames = (newPlayers) => {
     // Create an array of new 'game' objects that contain two player objects for each competitor
     let mergedGames = player1s.map((player1, index) => ({
         id: index,
-        player1: player1,
-        player2: player2s[index],
+        players: [{ ...player1 }, { ...player2s[index] }],
         deuce: 0,
         service: 1,
         complete: 0
