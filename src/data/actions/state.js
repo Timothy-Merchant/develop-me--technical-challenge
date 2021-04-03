@@ -98,22 +98,16 @@ export const completeMatch = (data) => {
     }
 }
 
-export const endRound = (currentRound) => {
+export const endRound = (currentRound, currentGame) => {
 
-    const newGames = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.player2));
-
-    const newRound = {
-        ...currentRound,
-        id: currentRound.id + 1,
-        games: newGames,
-        complete: false
-    }
+    const newPlayers = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.players[1]));
 
     return {
         type: "NEW_ROUND",
-        newRound: newRound,
-        currentRound: currentRound
-        // match: currentGame
+        newPlayer1s: newPlayers.player1s,
+        newPlayer2s: newPlayers.player2s,
+        currentRound: currentRound,
+        match: currentGame
     }
 }
 
@@ -139,19 +133,19 @@ const makeNewGames = (newPlayers) => {
 
     // Slice the array of names into two halves, then create new player objects using the passed in names
     let half = Math.floor(players.length / 2)
-    let player1s = players.slice(0, half);
-    let player2s = players.slice(half, players.length);
+    let player1s = players.slice(0, half).map(player => player.name);
+    let player2s = players.slice(half, players.length).map(player => player.name);
 
     // Create an array of new 'game' objects that contain two player objects for each competitor
-    let mergedGames = player1s.map((player1, index) => ({
-        id: index,
-        players: [{ ...player1 }, { ...player2s[index] }],
-        deuce: 0,
-        service: 1,
-        complete: 0
-    }))
+    // let mergedGames = player1s.map((player1, index) => ({
+    //     id: index,
+    //     players: [{ ...player1 }, { ...player2s[index] }],
+    //     deuce: 0,
+    //     service: 1,
+    //     complete: 0
+    // }))
 
-    return mergedGames
+    return { player1s, player2s }
 }
 
 

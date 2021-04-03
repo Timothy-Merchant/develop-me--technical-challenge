@@ -5,14 +5,14 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
 
     const completeMatch = () => {
 
-        const updatedGame = { ...currentGame };
-        updatedGame.player1.won = 1;
-        updatedGame.player2.won = 2;
+        const updatedGame = { ...currentGame };        
+        updatedGame.players[0].won = 1;
+        updatedGame.players[1].won = 2;
 
-        currentRound.id === rounds.length && currentGame.id === currentRound.games.length - 1 ?
+        currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1] ?
             endGame(currentRound) :
-            currentGame.id === currentRound.games.length - 1 ?
-                endRound({ currentRound, currentGame }) :
+            currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
+                endRound(currentRound, currentGame) :
                 nextMatch(updatedGame)
     }
 
