@@ -98,16 +98,20 @@ export const completeMatch = (data) => {
     }
 }
 
-export const endRound = (currentRound, currentGame) => {
+export const endRound = (data) => {
+
+    const currentRound = { ...data.currentRound }
+    const currentGame = { ...data.updatedGame }
+    console.log(currentGame);
 
     const newPlayers = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.players[1]));
 
     return {
         type: "NEW_ROUND",
-        newPlayer1s: newPlayers.player1s,
-        newPlayer2s: newPlayers.player2s,
-        currentRound: currentRound,
-        match: currentGame
+        newPlayer1s: [...newPlayers.player1s],
+        newPlayer2s: [...newPlayers.player2s],
+        currentRound: { ...currentRound },
+        match: { ...currentGame }
     }
 }
 

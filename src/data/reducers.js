@@ -31,24 +31,24 @@ const endGame = (state, { winner, prevRound }) => {
 // , match in parameters for MatchBox
 const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match }) => {
 
-    console.log(newPlayer1s)
-    console.log(newPlayer2s)
-
     const nextRound = state.rounds.filter((round, index) => round.id === currentRound.id + 1)[0];
 
     const newGames = nextRound.games.map((game, index) => {
-        const players = game.players;
+        const players = [...game.players];
         players[0].name = newPlayer1s[index];
         players[1].name = newPlayer2s[index];
         return { ...game, players: players }
     })
 
-    nextRound.games = [...newGames];
-
     return {
         ...state,
-        rounds: state.rounds.map((round) => round.id === nextRound.id ? { ...nextRound } : { ...round }),
-        currentRound: { ...nextRound }
+        rounds: state.rounds.map((round) =>
+            round.id === nextRound.id ?
+                { ...nextRound, games: [...newGames] } :
+                round.id === match.round_id ?
+                    { ...round, games: round.games.map((game) => game.id === match.id ? { ...match } : { ...game }) } : { ...round }),
+        currentRound: { ...nextRound },
+        currentGame: { ...nextRound.games[0] }
     }
 
     // This code simply updates the names of the players for the next series of rounds
