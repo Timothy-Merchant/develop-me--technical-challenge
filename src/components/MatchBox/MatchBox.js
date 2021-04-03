@@ -9,11 +9,6 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
         updatedGame.players[0].won = 1;
         updatedGame.players[1].won = 2;
 
-        console.log("if", currentRound.id)
-        console.log("===", rounds[rounds.length - 1].id)
-        console.log("&&", currentGame.id)
-        console.log("===", currentRound.games[currentRound.games.length - 1].id)
-
         currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
             endGame(currentRound) :
             currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
