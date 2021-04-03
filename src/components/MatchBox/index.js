@@ -5,6 +5,7 @@ import { increaseScore } from "../../data/actions/api";
 
 const mapStateToProps = state => {
     return {
+        tournamentID: state.tournamentID,
         currentRound: state.currentRound,
         currentGame: state.currentGame,
         gameStarted: state.gameStarted,

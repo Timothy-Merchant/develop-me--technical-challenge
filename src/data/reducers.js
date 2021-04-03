@@ -1,8 +1,12 @@
 const increaseScore = (state, action) => {
-    // return {
-    //     ...state,
-    //     players: players.map((player) => player.id === action.player.id ? { ...action.player } : { ...player })
-    // }
+
+    return {
+        ...state,
+        currentGame: {
+            ...state.currentGame,
+            players: state.currentGame.players.map((player) => action.player.id === player.id ? { ...action.player } : { ...player })
+        }
+    }
 }
 
 

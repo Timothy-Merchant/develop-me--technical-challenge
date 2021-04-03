@@ -1,7 +1,7 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 
-const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endGame }) => {
+const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endGame, tournamentID }) => {
 
     const completeMatch = () => {
 
@@ -21,9 +21,21 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
             <div className="MatchBox__Wrapper">
                 <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
                 <div className="MatchBox__Players">
-                    <Player increaseScore={(player) => increaseScore({ player: player, ID: player.id })} player={currentGame.players[0]} />
+                    <Player increaseScore={(player) => increaseScore({
+                        player: player,
+                        tournamentID: tournamentID,
+                        roundID: currentRound.id,
+                        gameID: player.game_id,
+                        playerID: player.id,
+                    })} player={currentGame.players[0]} />
                     <p className="MatchBox__Versus">VS</p>
-                    <Player increaseScore={(player) => increaseScore({ player: player, ID: player.id })} player={currentGame.players[1]} />
+                    <Player increaseScore={(player) => increaseScore({
+                        player: player,
+                        tournamentID: tournamentID,
+                        roundID: currentRound.id,
+                        gameID: player.game_id,
+                        playerID: player.id,
+                    })} player={currentGame.players[1]} />
                 </div>
                 <div className="MatchBox__GameAlerts">
                     <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
