@@ -42,10 +42,7 @@ const setupNewRound = (state, { newRound, currentRound }) => {
 
         // Update the previous round and new current round
         rounds: state.rounds.map((round) =>
-            round.id === newRound.id ?
-                { ...round, games: [...newRound.games] } :
-                round.id === currentRound.id ?
-                    { ...currentRound } : { ...round })
+            round.id === newRound.id ? {...newRound} : round.id === currentRound.id ? {...currentRound} : round)
     }
 }
 

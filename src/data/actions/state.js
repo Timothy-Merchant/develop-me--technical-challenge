@@ -103,12 +103,11 @@ export const endRound = (currentRound) => {
     const newGames = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.player2));
 
     const newRound = {
+        ...currentRound,
         id: currentRound.id + 1,
         games: newGames,
         complete: false
     }
-
-    console.log(newRound.id)
 
     return {
         type: "NEW_ROUND",
