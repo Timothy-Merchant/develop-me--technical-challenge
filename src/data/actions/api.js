@@ -1,5 +1,5 @@
 import axios from '../../axios'
-import { beginTournament } from "./state";
+import { beginTournament, updateScore } from "./state";
 
 export const startGame = (players) => {
 
@@ -53,6 +53,19 @@ export const startGame = (players) => {
             "rounds": { ...rounds },
         }).then(({ data }) => {
             dispatch(beginTournament(data));
+        })
+    }
+}
+
+export const increaseScore = (data) => {
+
+    const newScore = data.player.score += 1;
+
+    return (dispatch) => {
+        axios.put(`/players/${data.ID}`, {
+            "score": newScore,
+        }).then(({ data }) => {
+            dispatch(updateScore(data.data))
         })
     }
 }

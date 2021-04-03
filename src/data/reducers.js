@@ -1,15 +1,8 @@
 const increaseScore = (state, action) => {
-
-    const updatedGame = { ...state.currentGame }
-
-    action.ID === 1 ?
-        updatedGame.players[0].score += 1 :
-        updatedGame.players[1].score += 1;
-
-    return {
-        ...state,
-        currentGame: { ...updatedGame }
-    }
+    // return {
+    //     ...state,
+    //     players: players.map((player) => player.id === action.player.id ? { ...action.player } : { ...player })
+    // }
 }
 
 
@@ -70,8 +63,8 @@ const reducer = (state, action) => {
         case "BEGIN_TOURNAMENT": return {
             ...state,
             gameStarted: true,
+            tournamentID: action.tournament.id,
             rounds: action.tournament.rounds,
-            games: action.tournament.games,
             currentRound: action.currentRound,
             currentGame: action.currentGame
         };

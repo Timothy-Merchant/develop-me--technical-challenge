@@ -1,6 +1,7 @@
 const initial = {
     gameStarted: false,
     gameConcluded: false,
+    tournamentID: 0,
     players: [],
     games: [],
     rounds: [],
@@ -11,7 +12,7 @@ const initial = {
         tooFewPlayers: false,
         unevenPlayers: false
     },
-    champion: {}
+    champion: ""
 }
 
 export default initial

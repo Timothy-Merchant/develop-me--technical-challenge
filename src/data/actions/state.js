@@ -19,7 +19,7 @@ export const beginTournament = (data) => {
             games: games.filter(game => (game.round_id === round.id)).map
                 (game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) }))
         })),
-        games: games.map(game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) }))
+        games: games.map(game => ({ ...game, players: players.filter(player => (player.game_id === game.id)) })),
     }
 
     const currentRound = newTournament.rounds[0];
@@ -41,12 +41,11 @@ export const deletePlayer = (data) => {
     }
 }
 
-export const increaseScore = (data) => {
+export const updateScore = (player) => {
 
     return {
         type: "INCREASE_SCORE",
-        player: data.player,
-        ID: data.ID
+        player: player,
     }
 }
 

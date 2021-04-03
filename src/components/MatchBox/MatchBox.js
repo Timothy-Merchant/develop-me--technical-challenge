@@ -21,9 +21,9 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
             <div className="MatchBox__Wrapper">
                 <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
                 <div className="MatchBox__Players">
-                    <Player increaseScore={(player) => increaseScore({ player: player, ID: 1 })} player={currentGame.players[0]} />
+                    <Player increaseScore={(player) => increaseScore({ player: player, ID: player.id })} player={currentGame.players[0]} />
                     <p className="MatchBox__Versus">VS</p>
-                    <Player increaseScore={(player) => increaseScore({ player: player, ID: 2 })} player={currentGame.players[1]} />
+                    <Player increaseScore={(player) => increaseScore({ player: player, ID: player.id })} player={currentGame.players[1]} />
                 </div>
                 <div className="MatchBox__GameAlerts">
                     <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
