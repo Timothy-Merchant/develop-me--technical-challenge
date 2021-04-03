@@ -1,8 +1,3 @@
-const deletePlayer = (state, { index }) => ({
-    ...state,
-    players: state.players.filter((player, i) => index !== i)
-})
-
 const increaseScore = (state, action) => {
 
     const updatedGame = { ...state.currentGame }
@@ -28,7 +23,6 @@ const endGame = (state, { winner, prevRound }) => {
     }
 }
 
-// , match in parameters for MatchBox
 const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match }) => {
 
     const nextRound = state.rounds.filter((round, index) => round.id === currentRound.id + 1)[0];
@@ -50,18 +44,6 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
         currentRound: { ...nextRound },
         currentGame: { ...nextRound.games[0] }
     }
-
-    // This code simply updates the names of the players for the next series of rounds
-
-
-    // return {
-    //     ...state,
-    //     rounds: state.rounds.map((round) =>
-    //         round.id === newRound.id ? { ...newRound } :
-    //             round.id === currentRound.id ? { ...currentRound } : round),
-    //     currentRound: { ...newRound },
-    //     currentGame: { ...newRound.games[0] },
-    // }
 }
 
 const startNewMatch = (state, { match }) => {
@@ -81,6 +63,10 @@ const reducer = (state, action) => {
             ...state,
             players: [...state.players, action.newPlayer]
         };
+        case "DELETE_PLAYER": return {
+            ...state,
+            players: state.players.filter((player, i) => action.index !== i)
+        };
         case "BEGIN_TOURNAMENT": return {
             ...state,
             gameStarted: true,
@@ -89,20 +75,10 @@ const reducer = (state, action) => {
             currentRound: action.currentRound,
             currentGame: action.currentGame
         };
-        case "START_GAME": return {
-            ...state,
-            gameStarted: true,
-            rounds: action.rounds,
-            games: action.games,
-            currentRound: action.rounds[0],
-            currentGame: action.games[0]
-        }
-        case "DELETE_PLAYER": return deletePlayer(state, action);
         case "INCREASE_SCORE": return increaseScore(state, action);
         case "END_MATCH": return startNewMatch(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_GAME": return endGame(state, action);
-        case "SHOW_ROUNDS": return console.log(action.rounds);
         default: return state;
     }
 }

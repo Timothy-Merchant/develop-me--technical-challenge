@@ -101,16 +101,3 @@ const makeNewGames = (newPlayers) => {
 
     return { player1s, player2s }
 }
-
-
-// API response functions
-
-export const showRounds = (data) => {
-
-    console.log(data);
-
-    return {
-        type: "SHOW_ROUNDS",
-        rounds: data
-    }
-}
