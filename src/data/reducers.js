@@ -9,7 +9,6 @@ const increaseScore = (state, action) => {
     }
 }
 
-
 const endGame = (state, { winner, prevRound }) => {
 
     return {
@@ -43,12 +42,17 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
     }
 }
 
-const startNewMatch = (state, { match }) => {
+const startNewMatch = (state, { match, players }) => {
 
     return {
         ...state,
         rounds: state.rounds.map((round) => round.id === match.round_id ?
-            { ...round, games: round.games.map((game) => game.id === match.id ? { ...match } : { ...game }) }
+            {
+                ...round, games: round.games.map((game) => game.id === match.id ? {
+                    ...match,
+                    players: { ...players }
+                } : { ...game })
+            }
             : { ...round }),
         currentGame: state.currentRound.games.filter((game) => game.id === match.id + 1)[0],
     }

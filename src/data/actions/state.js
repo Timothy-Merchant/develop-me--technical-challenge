@@ -49,10 +49,12 @@ export const updateScore = (player, IDs) => {
     }
 }
 
-export const completeMatch = (data) => {
+export const finishMatch = ({ data }) => {
+
     return {
         type: "END_MATCH",
-        match: data
+        match: { ...data[0] },
+        players: { ...data[1] }
     }
 }
 
