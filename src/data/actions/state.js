@@ -58,7 +58,7 @@ export const finishMatch = ({ data }) => {
     }
 }
 
-export const endRound = (data) => {
+export const finishRound = (data) => {
 
     const currentRound = { ...data.currentRound }
     const currentGame = { ...data.updatedGame }

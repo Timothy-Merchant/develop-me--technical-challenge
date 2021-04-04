@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import MatchBox from "./MatchBox";
-import { endRound, endGame } from "../../data/actions/state";
-import { increaseScore, completeMatch } from "../../data/actions/api";
+import { endGame } from "../../data/actions/state";
+import { increaseScore, completeMatch, endRound } from "../../data/actions/api";
 
 const mapStateToProps = state => {
     return {

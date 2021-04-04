@@ -1,7 +1,7 @@
 import '../../styles/TournamentTree.scss';
 import Pairing from '../Pairing';
 
-const TournamentTree = ({ gameStarted, games, rounds, endRound, endGame }) => {
+const TournamentTree = ({ gameStarted, games, rounds }) => {
 
     return (
         gameStarted ?

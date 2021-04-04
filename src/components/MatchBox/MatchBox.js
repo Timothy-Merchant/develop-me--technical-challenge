@@ -12,7 +12,12 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
         currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
             endGame(currentRound) :
             currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
-                endRound({ currentRound, updatedGame }) :
+                endRound({
+                    currentRound: currentRound,
+                    updatedGame: updatedGame,
+                    tournamentID: tournamentID,
+                    roundID: currentRound.id,
+                }) :
                 nextMatch({
                     game: updatedGame,
                     tournamentID: tournamentID,
