@@ -43,6 +43,8 @@ export const deletePlayer = (data) => {
 
 export const updateScore = (data) => {
 
+    console.log(data);
+
     const player = data[0];
     const game = data[1];
 

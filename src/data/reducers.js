@@ -1,7 +1,16 @@
 const increaseScore = (state, action) => {
 
+    const currentRound = { ...state.currentRound };
+
     return {
         ...state,
+        rounds: state.rounds.map((round) =>
+            round.id === currentRound.id ?
+                {
+                    ...currentRound,
+                    games: currentRound.games.map((game) => game.id === action.game.id ?
+                        { ...action.game } : { ...game })
+                } : { ...round }),
         currentGame: {
             ...action.game,
             players: state.currentGame.players.map((player) => action.player.id === player.id ? { ...action.player } : { ...player })
