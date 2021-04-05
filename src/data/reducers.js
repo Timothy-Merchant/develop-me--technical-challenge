@@ -28,7 +28,7 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
         players[0].name = newPlayer1s[index];
         players[1].name = newPlayer2s[index];
         return { ...game, players: players }
-    })
+    })    
 
     return {
         ...state,

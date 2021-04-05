@@ -60,11 +60,11 @@ export const finishMatch = ({ data }) => {
 
 export const finishRound = (data) => {
 
-    const currentRound = { ...data.currentRound }
-    const currentGame = { ...data.updatedGame }
-    console.log(currentGame);
+    const currentRound = { ...data.data }
 
     const newPlayers = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.players[1]));
+
+    const currentGame = currentRound.games[currentRound.games.length - 1];
 
     return {
         type: "NEW_ROUND",

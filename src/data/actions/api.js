@@ -91,10 +91,13 @@ export const endRound = (data) => {
 
     return (dispatch) => {
         axios.put(`/tournaments/${data.tournamentID}/rounds/${data.roundID}`, {
-            ...data.currentRound
+            ...data,
+            currentRound: {
+                ...data.currentRound,
+                games: data.currentRound.games.map((game) => game.id === data.updatedGame.id ? { ...data.updatedGame } : { ...game })
+            }
         }).then(({ data }) => {
-            const updatedRound = { ...data };
-            dispatch(finishRound({ data }))
+            dispatch(finishRound(data))
         })
     }
 }
