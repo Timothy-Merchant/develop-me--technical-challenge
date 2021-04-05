@@ -59,19 +59,11 @@ export const startGame = (players) => {
 
 export const increaseScore = (data) => {
 
-    const requestData = {
-        ...data,
-        player: {
-            ...data.player,
-            score: data.player.score += 1
-        }
-    };
-
     return (dispatch) => {
         axios.put(`/tournaments/${data.tournamentID}/rounds/${data.roundID}/games/${data.gameID}/players/${data.playerID}`, {
-            ...data.player
+            ...data
         }).then(({ data }) => {
-            dispatch(updateScore(data.data, requestData))
+            dispatch(updateScore(data))
         })
     }
 }

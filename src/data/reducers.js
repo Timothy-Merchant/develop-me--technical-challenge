@@ -3,17 +3,17 @@ const increaseScore = (state, action) => {
     return {
         ...state,
         currentGame: {
-            ...state.currentGame,
+            ...action.game,
             players: state.currentGame.players.map((player) => action.player.id === player.id ? { ...action.player } : { ...player })
         }
     }
 }
 
-const endTournament = (state, { winner, lastGame }) => {
+const endTournament = (state, { winner, lastRound }) => {
 
     return {
         ...state,
-        rounds: state.rounds.map((round) => round.id === lastGame.id ? { ...lastGame } : { ...round }),
+        rounds: state.rounds.map((round) => round.id === lastRound.id ? { ...lastRound } : { ...round }),
         gameConcluded: true,
         champion: winner
     }

@@ -36,7 +36,9 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
                 <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
                 <div className="MatchBox__Players">
                     <Player increaseScore={(player) => increaseScore({
+                        player1or2: 1,
                         player: player,
+                        game: currentGame,
                         tournamentID: tournamentID,
                         roundID: currentRound.id,
                         gameID: player.game_id,
@@ -44,7 +46,9 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
                     })} player={currentGame.players[0]} />
                     <p className="MatchBox__Versus">VS</p>
                     <Player increaseScore={(player) => increaseScore({
+                        player1or2: 2,
                         player: player,
+                        game: currentGame,
                         tournamentID: tournamentID,
                         roundID: currentRound.id,
                         gameID: player.game_id,

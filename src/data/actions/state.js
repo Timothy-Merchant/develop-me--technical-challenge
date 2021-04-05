@@ -41,11 +41,15 @@ export const deletePlayer = (data) => {
     }
 }
 
-export const updateScore = (player, IDs) => {
+export const updateScore = (data) => {
+
+    const player = data[0];
+    const game = data[1];
 
     return {
         type: "INCREASE_SCORE",
-        player: player
+        player: player,
+        game: game
     }
 }
 
@@ -79,12 +83,12 @@ export const finishRound = (data) => {
 export const finishTournament = (data) => {
 
     const champion = data[0].champion;
-    const lastGame = { ...data[1] };
+    const lastRound = { ...data[1] };
 
     return {
         type: "END_TOURNAMENT",
         winner: champion,
-        lastGame: lastGame,
+        lastRound: lastRound,
     }
 }
 
