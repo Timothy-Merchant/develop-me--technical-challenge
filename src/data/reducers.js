@@ -9,12 +9,12 @@ const increaseScore = (state, action) => {
     }
 }
 
-const endGame = (state, { winner, prevRound }) => {
+const endTournament = (state, { winner, lastGame }) => {
 
     return {
         ...state,
+        rounds: state.rounds.map((round) => round.id === lastGame.id ? { ...lastGame } : { ...round }),
         gameConcluded: true,
-        rounds: state.rounds.map((round) => round.id === prevRound.id ? { ...prevRound } : round),
         champion: winner
     }
 }
@@ -28,7 +28,7 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
         players[0].name = newPlayer1s[index];
         players[1].name = newPlayer2s[index];
         return { ...game, players: players }
-    })    
+    })
 
     return {
         ...state,
@@ -79,7 +79,7 @@ const reducer = (state, action) => {
         case "INCREASE_SCORE": return increaseScore(state, action);
         case "END_MATCH": return startNewMatch(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
-        case "END_GAME": return endGame(state, action);
+        case "END_TOURNAMENT": return endTournament(state, action);
         default: return state;
     }
 }

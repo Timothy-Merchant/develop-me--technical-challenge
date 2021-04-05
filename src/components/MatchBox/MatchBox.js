@@ -1,7 +1,7 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 
-const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endGame, tournamentID }) => {
+const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endTournament, tournamentID }) => {
 
     const completeMatch = () => {
 
@@ -10,7 +10,12 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
         updatedGame.players[1].won = 2;
 
         currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
-            endGame(currentRound) :
+            endTournament({
+                currentRound: currentRound,
+                updatedGame: updatedGame,
+                tournamentID: tournamentID,
+                roundID: currentRound.id
+            }) :
             currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
                 endRound({
                     currentRound: currentRound,

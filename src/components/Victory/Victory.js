@@ -4,7 +4,7 @@ const Victory = ({ champion }) => {
 
     return (
         <>
-            <p>{champion.name} Wins!</p>
+            <p>{champion} Wins!</p>
         </>
     );
 }

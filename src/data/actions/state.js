@@ -76,15 +76,15 @@ export const finishRound = (data) => {
 }
 
 
-export const endGame = (round) => {
+export const finishTournament = (data) => {
 
-    // Determine the tournament champion (winner of the final)
-    const winner = round.games[0].players[0].won === 1 ? round.games[0].players[0] : round.games[0].players[1]
+    const champion = data[0].champion;
+    const lastGame = { ...data[1] };
 
     return {
-        type: "END_GAME",
-        winner: winner,
-        prevRound: round,
+        type: "END_TOURNAMENT",
+        winner: champion,
+        lastGame: lastGame,
     }
 }
 
