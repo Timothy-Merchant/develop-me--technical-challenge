@@ -1,7 +1,9 @@
 import '../../styles/GameForm.scss';
 import { useState } from "react";
+import Roster from "../Roster";
+import { Redirect } from "react-router-dom";
 
-const GameForm = ({ createPlayer, players, startGame }) => {
+const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
 
     const [playerName, setPlayerName] = useState("");
     const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false });
@@ -67,19 +69,23 @@ const GameForm = ({ createPlayer, players, startGame }) => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit} action="" method="get" className="GameForm">
-                <div className="GameForm__Entry">
-                    <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
-                    <input value={playerName} onChange={handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
-                    <button type="button" onClick={handlePlayerCreate} className="GameForm__Button">Add Player</button>
-                    <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
-                    {Object.keys(errors).map((error, index) =>
-                        (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
+        gameStarted ? <Redirect to="game" /> :
+            <>
+                <div className="pageStyle">
+                    <form onSubmit={handleSubmit} action="" method="get" className="GameForm">
+                        <div className="GameForm__Entry">
+                            <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
+                            <input value={playerName} onChange={handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
+                            <button type="button" onClick={handlePlayerCreate} className="GameForm__Button">Add Player</button>
+                            <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
+                            {Object.keys(errors).map((error, index) =>
+                                (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
+                        </div>
+                    </form>
+                    <Roster />
+                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Players</button>
                 </div>
-            </form>
-            <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Players</button>
-        </>
+            </>
     );
 }
 

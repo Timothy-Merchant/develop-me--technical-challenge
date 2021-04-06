@@ -1,6 +1,7 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
 import { Component } from 'react';
+import TournamentTree from '../TournamentTree/TournamentTree';
 
 class MatchBox extends Component {
 
@@ -74,37 +75,42 @@ class MatchBox extends Component {
 
         const { increaseScore, currentGame, currentRound, tournamentID, gameStarted } = this.props;
 
-        return (gameStarted ?
-            <div className="MatchBox__Wrapper">
-                <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
-                <div className="MatchBox__Players">
-                    <Player increaseScore={(player) => increaseScore({
-                        player1or2: 1,
-                        player: player,
-                        game: currentGame,
-                        tournamentID: tournamentID,
-                        roundID: currentRound.id,
-                        gameID: player.game_id,
-                        playerID: player.id,
-                    })} player={currentGame.players[0]} />
-                    <p className="MatchBox__Versus">VS</p>
-                    <Player increaseScore={(player) => increaseScore({
-                        player1or2: 2,
-                        player: player,
-                        game: currentGame,
-                        tournamentID: tournamentID,
-                        roundID: currentRound.id,
-                        gameID: player.game_id,
-                        playerID: player.id,
-                    })} player={currentGame.players[1]} />
+        return (gameStarted ? <>
+            <div className="pageStyle">
+                <div className="MatchBox__Wrapper">
+                    <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
+                    <div className="MatchBox__Players">
+                        <Player increaseScore={(player) => increaseScore({
+                            player1or2: 1,
+                            player: player,
+                            game: currentGame,
+                            tournamentID: tournamentID,
+                            roundID: currentRound.id,
+                            gameID: player.game_id,
+                            playerID: player.id,
+                        })} player={currentGame.players[0]} />
+                        <p className="MatchBox__Versus">VS</p>
+                        <Player increaseScore={(player) => increaseScore({
+                            player1or2: 2,
+                            player: player,
+                            game: currentGame,
+                            tournamentID: tournamentID,
+                            roundID: currentRound.id,
+                            gameID: player.game_id,
+                            playerID: player.id,
+                        })} player={currentGame.players[1]} />
+                    </div>
+                    <div className="MatchBox__GameAlerts">
+                        <p className="MatchBox__Alert">{currentGame.service === 0 ? "Service" : ""}</p>
+                        <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
+                        <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
+                    </div>
+                    <button onClick={() => this.completeMatch()}>Complete Match</button>
                 </div>
-                <div className="MatchBox__GameAlerts">
-                    <p className="MatchBox__Alert">{currentGame.service === 0 ? "Service" : ""}</p>
-                    <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
-                    <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
-                </div>
-                <button onClick={() => this.completeMatch()}>Complete Match</button>
-            </div> :
+                <TournamentTree />
+            </div>
+        </>
+            :
             null)
     }
 
