@@ -12,9 +12,9 @@ class MatchBox extends Component {
 
     componentDidUpdate() {
 
-        const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch } = this.props;
+        const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch, gameConcluded } = this.props;
 
-        if (currentGame.players[0].won === 1 || currentGame.players[1].won === 1) {
+        if ((currentGame.players[0].won === 1 || currentGame.players[1].won === 1) && !gameConcluded) {
             const updatedGame = { ...currentGame };
             updatedGame.players[0].won = 1;
             updatedGame.players[1].won = 2;

@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         currentRound: state.currentRound,
         currentGame: state.currentGame,
         gameStarted: state.gameStarted,
+        gameConcluded: state.gameConcluded,
         rounds: state.rounds
     }
 }
