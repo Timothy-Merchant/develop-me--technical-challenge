@@ -6,12 +6,12 @@ import { Redirect } from "react-router-dom";
 const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
 
     const [playerName, setPlayerName] = useState("");
-    const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: false, unevenPlayers: false });
+    const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: true, unevenPlayers: false });
 
     const errorTexts = {
         invalidName: "Please enter a name between 3 and 15 characters",
         tooFewPlayers: "Please add at least 2 players to the tournament",
-        unevenPlayers: "Please create an even number of players",
+        unevenPlayers: "Total player count must be a power of 2 (2, 4, 8, 16, 32 etc...)",
         tooManyPlayers: "Pongtrix currently supports a maximum of 10 players"
     }
 
@@ -23,7 +23,7 @@ const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
     const validatePlayers = (players) => setErrors({
         ...errors,
         tooFewPlayers: players.length < 1,
-        unevenPlayers: players.length % 2 === 0
+        unevenPlayers: players.length + 1 && (players.length + 1 & (players.length)) !== 0
     });
 
     const handleNameInput = (e) => {
@@ -83,7 +83,10 @@ const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
                         </div>
                     </form>
                     <Roster />
-                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Players</button>
+                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 4 Random Players</button>
+                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Random Players</button>
+                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 16 Random Players</button>
+                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 32 Random Players</button>
                 </div>
             </>
     );

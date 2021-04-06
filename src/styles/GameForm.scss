@@ -8,13 +8,13 @@
     padding: 2rem;
     border: 1px solid $GreenMid;
     color: $GreenMid;
-    font-family: $font;    
+    font-family: $font;
 }
 
 .GameForm__Entry {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .GameForm__Label {
@@ -28,6 +28,7 @@
     background-color: $GreenBlack;
     font-family: $font;
 }
+
 
 .GameForm__Button {
     @include button;
