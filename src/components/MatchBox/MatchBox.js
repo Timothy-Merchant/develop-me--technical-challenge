@@ -135,7 +135,7 @@ class MatchBox extends Component {
                                 <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
                                 <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
                             </div>
-                            <button onClick={() => this.completeMatch()}>Complete Match</button>
+                            <button className="MatchBox__Button" onClick={() => this.completeMatch()}>Auto Complete Match</button>
                         </div>
                         <TournamentTree />
                     </div>

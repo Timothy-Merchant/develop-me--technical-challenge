@@ -14,12 +14,6 @@ class GameForm extends Component {
             errors: { invalidName: false, tooFewPlayers: true, unevenPlayers: false }
         }
 
-        this.validateName = this.validateName.bind(this);
-        this.validatePlayers = this.validatePlayers.bind(this);
-        this.handleNameInput = this.handleNameInput.bind(this);
-        this.handlePlayerCreate = this.handlePlayerCreate.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.createRandomPlayers = this.createRandomPlayers.bind(this);
     }
 
 

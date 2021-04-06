@@ -8,8 +8,10 @@ const Victory = ({ champion, gameStarted, reset }) => {
         !gameStarted ? <Redirect to="start" /> :
             <>
                 <div className="pageStyle">
-                    <p>{champion} Wins!</p>
-                    <button onClick={() => reset()}>Start new Tournament</button>
+                    <div className="Victory__Message">
+                        <p>{champion} Wins!</p>
+                    </div>
+                    <button className="Victory__Button" onClick={() => reset()}>Start new Tournament</button>
                     <TournamentTree />
                 </div>
             </>

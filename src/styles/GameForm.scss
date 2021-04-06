@@ -1,7 +1,7 @@
 @import "./Global.scss";
 
-.GameForm {
-    height: 100%;
+.GameForm {    
+    margin: 2rem 0;
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,6 @@
     background-color: $GreenBlack;
     font-family: $font;
 }
-
 
 .GameForm__Button {
     @include button;

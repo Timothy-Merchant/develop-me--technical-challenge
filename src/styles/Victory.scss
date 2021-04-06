@@ -1,5 +1,15 @@
 @import "./Global.scss";
 
-p {
+.Victory__Message {
     color: $GreenMid;
+}
+
+.Victory__Button {
+    margin: 2rem;
+    @include button;
+    padding: 0.4rem;
+    border: 1px solid $GreenMid;
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
 }
