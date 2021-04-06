@@ -1,63 +1,96 @@
 import '../../styles/GameForm.scss';
-import { useState } from "react";
+import { Component } from "react";
 import Roster from "../Roster";
 import { Redirect } from "react-router-dom";
 
-const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
+class GameForm extends Component {
 
-    const [playerName, setPlayerName] = useState("");
-    const [errors, setErrors] = useState({ invalidName: false, tooFewPlayers: true, unevenPlayers: false });
+    constructor(props) {
+        super(props)
 
-    const errorTexts = {
+        this.state = {
+            playerName: "",
+            errors: { invalidName: false, tooFewPlayers: true, unevenPlayers: false }
+        }
+
+        this.validateName = this.validateName.bind(this);
+        this.validatePlayers = this.validatePlayers.bind(this);
+        this.handleNameInput = this.handleNameInput.bind(this);
+        this.handlePlayerCreate = this.handlePlayerCreate.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.testPlayerCreate = this.testPlayerCreate.bind(this);
+    }
+
+
+    errorTexts = {
         invalidName: "Please enter a name between 3 and 15 characters",
         tooFewPlayers: "Please add at least 2 players to the tournament",
         unevenPlayers: "Total player count must be a power of 2 (2, 4, 8, 16, 32 etc...)",
         tooManyPlayers: "Pongtrix currently supports a maximum of 10 players"
     }
 
-    const validateName = (name) => setErrors({
-        ...errors,
-        invalidName: name.length <= 2 || name.length >= 15,
-    });
-
-    const validatePlayers = (players) => setErrors({
-        ...errors,
-        tooFewPlayers: players.length < 1,
-        unevenPlayers: players.length + 1 && (players.length + 1 & (players.length)) !== 0
-    });
-
-    const handleNameInput = (e) => {
-        const nameInput = e.currentTarget.value;
-        setPlayerName(nameInput, validateName(playerName));
-    }
-
-    const handlePlayerCreate = (e) => {
-
-        if (!errors.invalidName && playerName !== "") {
-            createPlayer(playerName, validatePlayers(players));
-            setPlayerName("");
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.players !== this.props.players) {
+            this.validatePlayers(this.props.players)
         }
     }
 
-    const handleSubmit = (e) => {
+    validateName = (name) => this.setState({
+        errors: {
+            ...this.state.errors,
+            invalidName: name.length <= 2 || name.length >= 15
+        }
+    });
+
+    validatePlayers = (players) => this.setState({
+        errors: {
+            ...this.state.errors,
+            tooFewPlayers: players.length < 1,
+            unevenPlayers: players.length && (players.length & (players.length - 1)) !== 0
+        }
+    });
+
+    handleNameInput = (e) => {
+        const nameInput = e.currentTarget.value;
+        this.validateName(nameInput);
+        this.setState({
+            playerName: nameInput
+        })
+    }
+
+    handlePlayerCreate = (e) => {
+
+        if (!this.state.errors.invalidName && this.state.playerName !== "") {
+            this.props.createPlayer(this.state.playerName);
+            this.validatePlayers(this.props.players);
+        }
+    }
+
+    handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!errors.tooFewPlayers &&
-            !errors.tooManyPlayers &&
-            !errors.unevenPlayers) {
+        if (!this.state.errors.tooFewPlayers &&
+            !this.state.errors.tooManyPlayers &&
+            !this.state.errors.unevenPlayers) {
+
+            this.setState({
+                playerName: ""
+            })
 
             // pass up an array of player objects with name properties from the user
-            const rosterList = players.map((player, index) => ({
+            const rosterList = this.props.players.map((player, index) => ({
                 name: player,
                 score: 0,
                 won: 0
             }));
 
-            startGame(rosterList);
+            this.props.startGame(rosterList);
         }
     }
 
-    const testPlayerCreate = (e) => {
+    testPlayerCreate = (e) => {
+        const createPlayer = this.props.createPlayer;
+
         createPlayer("fred");
         createPlayer("james");
         createPlayer("pete");
@@ -68,28 +101,29 @@ const GameForm = ({ createPlayer, players, startGame, gameStarted }) => {
         createPlayer("jemima");
     }
 
-    return (
-        gameStarted ? <Redirect to="game" /> :
+    render() {
+        const { gameStarted } = this.props;
+        const { playerName, errors } = this.state;
+
+        return (gameStarted ? <Redirect to="game" /> :
             <>
                 <div className="pageStyle">
-                    <form onSubmit={handleSubmit} action="" method="get" className="GameForm">
+                    <form onSubmit={this.handleSubmit} action="" method="get" className="GameForm">
                         <div className="GameForm__Entry">
                             <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
-                            <input value={playerName} onChange={handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
-                            <button type="button" onClick={handlePlayerCreate} className="GameForm__Button">Add Player</button>
+                            <input value={playerName} onChange={this.handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
+                            <button type="button" onClick={this.handlePlayerCreate} className="GameForm__Button">Add Player</button>
                             <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
                             {Object.keys(errors).map((error, index) =>
-                                (errors[error] ? <p key={index} className="GameForm__Error">{errorTexts[error]}</p> : null))}
+                                (errors[error] ? <p key={index} className="GameForm__Error">{this.errorTexts[error]}</p> : null))}
                         </div>
                     </form>
                     <Roster />
-                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 4 Random Players</button>
-                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 8 Random Players</button>
-                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 16 Random Players</button>
-                    <button onClick={testPlayerCreate} className="GameForm__Button">Add 32 Random Players</button>
+                    <button onClick={this.testPlayerCreate} className="GameForm__Button">Add 4 Random Players</button>
+                    <button onClick={this.testPlayerCreate} className="GameForm__Button">Add 8 Random Players</button>
                 </div>
-            </>
-    );
+            </>)
+    }
 }
 
 export default GameForm;
