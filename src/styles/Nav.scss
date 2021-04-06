@@ -1,0 +1,23 @@
+@import "./Global.scss";
+
+.Nav__Wrapper {    
+    box-sizing: border-box;
+    display: flex;
+    min-height: 5rem;
+    width: 100vw;
+    background-color: $GreenBlack;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $GreenMid;
+}
+
+
+.Nav__Link {
+    margin: 0 2rem;
+    height: 1.5rem;    
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
+}
+

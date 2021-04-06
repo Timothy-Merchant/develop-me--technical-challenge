@@ -102,30 +102,33 @@ class GameForm extends Component {
         const { gameStarted } = this.props;
         const { playerName, errors } = this.state;
 
-        return (gameStarted ? <Redirect to="game" /> :
-            <>
-                <div className="pageStyle">
-                    <form onSubmit={this.handleSubmit} action="" method="get" className="GameForm">
-                        <div className="GameForm__Entry">
-
-                            <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
-
-                            <input value={playerName} onChange={this.handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
-
-                            <button type="button" onClick={this.handlePlayerCreate} className="GameForm__Button">Add Player</button>
-
-                            <button type="button" onClick={this.createRandomPlayers} className="GameForm__Button">Add 4 Random Players</button>
-
-                            <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
+        return (
 
 
-                            {Object.keys(errors).map((error, index) =>
-                                (errors[error] ? <p key={index} className="GameForm__Error">{this.errorTexts[error]}</p> : null))}
-                        </div>
-                    </form>
-                    <Roster />
-                </div>
-            </>)
+            gameStarted ? <Redirect to="game" /> :
+                <>
+                    <div className="pageStyle">
+                        <form onSubmit={this.handleSubmit} action="" method="get" className="GameForm">
+                            <div className="GameForm__Entry">
+
+                                <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
+
+                                <input value={playerName} onChange={this.handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
+
+                                <button type="button" onClick={this.handlePlayerCreate} className="GameForm__Button">Add Player</button>
+
+                                <button type="button" onClick={this.createRandomPlayers} className="GameForm__Button">Add 4 Random Players</button>
+
+                                <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
+
+
+                                {Object.keys(errors).map((error, index) =>
+                                    (errors[error] ? <p key={index} className="GameForm__Error">{this.errorTexts[error]}</p> : null))}
+                            </div>
+                        </form>
+                        <Roster />
+                    </div>
+                </>)
     }
 }
 

@@ -6,7 +6,8 @@ import { startGame } from "../../data/actions/api"
 const mapStateToProps = state => {
     return {
         players: state.players,
-        gameStarted: state.gameStarted
+        gameStarted: state.gameStarted,
+        loaded: state.loaded
     }
 }
 

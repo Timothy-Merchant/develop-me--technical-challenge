@@ -1,5 +1,14 @@
 import axios from '../../axios'
-import { finishTournament, beginTournament, updateScore, finishMatch, finishRound } from "./state";
+import { loadTournaments, finishTournament, beginTournament, updateScore, finishMatch, finishRound } from "./state";
+
+export const getTournaments = () => {
+
+    return (dispatch) => {
+        axios.get("/tournaments").then(({ data }) => {
+            dispatch(loadTournaments(data));
+        })
+    }
+}
 
 export const startGame = (players) => {
 

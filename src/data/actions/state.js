@@ -1,3 +1,10 @@
+export const loadTournaments = (data) => {
+    return {
+        type: "LOAD_TOURNAMENTS",
+        tournaments: data
+    }
+}
+
 export const createPlayer = (data) => {
     return {
         type: "CREATE_PLAYER",

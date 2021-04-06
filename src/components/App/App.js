@@ -8,13 +8,15 @@ import GameForm from '../GameForm';
 import MatchBox from '../MatchBox';
 import Victory from '../Victory';
 import FourOhFour from '../FourOhFour/FourOhFour';
+import Nav from '../Nav';
 
 const App = ({ gameConcluded, gameStarted }) => {
   return (
     <>
       <Router>
+        <Nav />
         <Switch>
-          <Route exact path="/start" component={GameForm}></Route>
+          <Route exact path="/" component={GameForm}></Route>
           <Route exact path="/game" component={MatchBox}></Route>
           <Route exact path="/victory" component={Victory}></Route>
           <FourOhFour />

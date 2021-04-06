@@ -5,7 +5,7 @@ import TournamentTree from '../TournamentTree/';
 const Victory = ({ champion, gameStarted, reset }) => {
 
     return (
-        !gameStarted ? <Redirect to="start" /> :
+        !gameStarted ? <Redirect to="" /> :
             <>
                 <div className="pageStyle">
                     <div className="Victory__Message">

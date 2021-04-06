@@ -72,6 +72,11 @@ const startNewMatch = (state, { match, players }) => {
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case "LOAD_TOURNAMENTS": return {
+            ...state,
+            loaded: true,
+            tournaments: action.data
+        }
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]
