@@ -14,12 +14,8 @@ const App = ({ gameConcluded, gameStarted }) => {
       <Router>
         <Switch>
           <Route exact path="/start" component={GameForm}></Route>
-          <Route exact path="/game" component={MatchBox}></Route>                      
-          <Route exact path="/victory">
-            <div className="pageStyle">
-              <Victory />
-            </div>
-          </Route>
+          <Route exact path="/game" component={MatchBox}></Route>
+          <Route exact path="/victory" component={Victory}></Route>
         </Switch>
       </Router>
     </>

@@ -92,6 +92,7 @@ const reducer = (state, action) => {
         case "END_MATCH": return startNewMatch(state, action);
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_TOURNAMENT": return endTournament(state, action);
+        case "RESET_GAME": return { ...state, gameStarted: false, gameConcluded: false, players: [] };
         default: return state;
     }
 }

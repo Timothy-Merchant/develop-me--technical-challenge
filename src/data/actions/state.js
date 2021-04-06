@@ -109,6 +109,12 @@ export const finishTournament = (data) => {
     }
 }
 
+export const resetGame = () => {
+    return {
+        type: "RESET_GAME"
+    }
+}
+
 // HELPER FUNCTIONS
 
 const makeNewGames = (newPlayers) => {
