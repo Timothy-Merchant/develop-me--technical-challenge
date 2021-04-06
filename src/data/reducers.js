@@ -11,7 +11,7 @@ const increaseScore = (state, action) => {
                     { ...action.game } : { ...game })
             } : { ...round }),
         currentGame: {
-            ...action.game,            
+            ...action.game,
         },
     }
 }

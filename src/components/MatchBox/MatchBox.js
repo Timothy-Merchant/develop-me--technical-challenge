@@ -6,6 +6,7 @@ class MatchBox extends Component {
 
     constructor(props) {
         super(props)
+
         this.completeMatch = this.completeMatch.bind(this);
     }
 
@@ -71,7 +72,7 @@ class MatchBox extends Component {
 
     render() {
 
-        const { increaseScore, currentGame, currentRound, tournamentID, completeMatch, gameStarted } = this.props;
+        const { increaseScore, currentGame, currentRound, tournamentID, gameStarted } = this.props;
 
         return (gameStarted ?
             <div className="MatchBox__Wrapper">
@@ -102,7 +103,7 @@ class MatchBox extends Component {
                     <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
                     <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
                 </div>
-                <button onClick={() => completeMatch()}>Complete Match</button>
+                <button onClick={() => this.completeMatch()}>Complete Match</button>
             </div> :
             null)
     }
