@@ -72,6 +72,33 @@ class MatchBox extends Component {
                 })
     }
 
+    calculateTitle = () => {
+        let totalMatches = this.props.currentRound.games.length;
+        let currentMatch = 0;
+
+        let totalRounds = this.props.rounds.length;
+        let currentRoundID = 0;
+
+        this.props.rounds.forEach((round, index) => {
+            if (this.props.currentRound.id === round.id) {
+                currentRoundID = index + 1;
+                round.games.forEach((game, index) => {
+                    if (this.props.currentGame.id === game.id) {
+                        currentMatch = index + 1;
+                    }
+                })
+            }
+        })
+
+        let currentRoundName = currentRoundID === totalRounds ? "Final" :
+            currentRoundID === totalRounds - 1 ? "Semi Finals" :
+                currentRoundID === totalRounds - 2 ? "Quarter Finals" : `Round ${currentRoundID}`
+
+        return currentRoundName === "Final" ?
+            `${currentRoundName}` :
+            `${currentRoundName}, Match ${currentMatch}/${totalMatches}`;
+    }
+
     render() {
 
         const { increaseScore, currentGame, currentRound, tournamentID, gameConcluded } = this.props;
@@ -81,7 +108,7 @@ class MatchBox extends Component {
                 <>
                     <div className="pageStyle">
                         <div className="MatchBox__Wrapper">
-                            <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
+                            <h1 className="MatchBox__Header">{this.calculateTitle()}</h1>
                             <div className="MatchBox__Players">
                                 <Player increaseScore={(player) => increaseScore({
                                     player1or2: 1,
