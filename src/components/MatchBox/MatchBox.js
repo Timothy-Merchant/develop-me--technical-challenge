@@ -1,9 +1,48 @@
 import '../../styles/MatchBox.scss';
 import Player from '../Player';
+import { Component } from 'react';
 
-const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted, increaseScore, rounds, endTournament, tournamentID }) => {
+class MatchBox extends Component {
 
-    const completeMatch = () => {
+    constructor(props) {
+        super(props)
+        this.completeMatch = this.completeMatch.bind(this);
+    }
+
+    componentDidUpdate() {
+
+        const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch } = this.props;
+
+        if (currentGame.players[0].won === 1 || currentGame.players[1].won === 1) {
+            const updatedGame = { ...currentGame };
+            updatedGame.players[0].won = 1;
+            updatedGame.players[1].won = 2;
+
+            currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
+                endTournament({
+                    currentRound: currentRound,
+                    updatedGame: updatedGame,
+                    tournamentID: tournamentID,
+                    roundID: currentRound.id
+                }) :
+                currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
+                    endRound({
+                        currentRound: currentRound,
+                        updatedGame: updatedGame,
+                        tournamentID: tournamentID,
+                        roundID: currentRound.id,
+                    }) :
+                    nextMatch({
+                        game: updatedGame,
+                        tournamentID: tournamentID,
+                        roundID: currentRound.id,
+                    })
+        }
+    }
+
+    completeMatch = () => {
+
+        const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch } = this.props;
 
         const updatedGame = { ...currentGame };
         updatedGame.players[0].won = 1;
@@ -30,8 +69,11 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
                 })
     }
 
-    return (
-        gameStarted ?
+    render() {
+
+        const { increaseScore, currentGame, currentRound, tournamentID, completeMatch, gameStarted } = this.props;
+
+        return (gameStarted ?
             <div className="MatchBox__Wrapper">
                 <h1 className="MatchBox__Header">Round {currentRound.id}</h1>
                 <div className="MatchBox__Players">
@@ -62,8 +104,9 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
                 </div>
                 <button onClick={() => completeMatch()}>Complete Match</button>
             </div> :
-            null
-    );
+            null)
+    }
+
 }
 
 export default MatchBox;
