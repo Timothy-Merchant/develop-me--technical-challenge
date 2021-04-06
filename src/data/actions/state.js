@@ -51,7 +51,12 @@ export const updateScore = (data) => {
         type: "INCREASE_SCORE",
         player: player,
         adversary: adversary,
-        game: game
+        game: game,
+        meta: {
+            debounce: {
+                time: 300
+            }
+        }
     }
 }
 
@@ -60,7 +65,12 @@ export const finishMatch = ({ data }) => {
     return {
         type: "END_MATCH",
         match: { ...data[0] },
-        players: { ...data[1] }
+        players: { ...data[1] },
+        meta: {
+            debounce: {
+                time: 300
+            }
+        }
     }
 }
 
@@ -70,14 +80,19 @@ export const finishRound = (data) => {
 
     const newPlayers = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.players[1]));
 
-    const currentGame = currentRound.games[currentRound.games.length - 1];    
+    const currentGame = currentRound.games[currentRound.games.length - 1];
 
     return {
         type: "NEW_ROUND",
         newPlayer1s: [...newPlayers.player1s],
         newPlayer2s: [...newPlayers.player2s],
         currentRound: { ...currentRound },
-        match: { ...currentGame }
+        match: { ...currentGame },
+        meta: {
+            debounce: {
+                time: 300
+            }
+        }
     }
 }
 
