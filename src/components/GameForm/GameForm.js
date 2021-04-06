@@ -1,4 +1,5 @@
 import '../../styles/GameForm.scss';
+import RandomNames from './randomNames.json';
 import { Component } from "react";
 import Roster from "../Roster";
 import { Redirect } from "react-router-dom";
@@ -18,7 +19,7 @@ class GameForm extends Component {
         this.handleNameInput = this.handleNameInput.bind(this);
         this.handlePlayerCreate = this.handlePlayerCreate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.testPlayerCreate = this.testPlayerCreate.bind(this);
+        this.createRandomPlayers = this.createRandomPlayers.bind(this);
     }
 
 
@@ -32,6 +33,9 @@ class GameForm extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.players !== this.props.players) {
             this.validatePlayers(this.props.players)
+            this.setState({
+                playerName: ""
+            })
         }
     }
 
@@ -88,17 +92,16 @@ class GameForm extends Component {
         }
     }
 
-    testPlayerCreate = (e) => {
+    createRandomPlayers = (e) => {
         const createPlayer = this.props.createPlayer;
 
-        createPlayer("fred");
-        createPlayer("james");
-        createPlayer("pete");
-        createPlayer("alfred");
-        createPlayer("jenny");
-        createPlayer("joanne");
-        createPlayer("jessica");
-        createPlayer("jemima");
+        let counter = 0;
+
+        while (counter < 4) {
+            const randomIndex = Math.floor(Math.random() * RandomNames.length);
+            createPlayer(RandomNames[randomIndex]);
+            counter += 1;
+        }
     }
 
     render() {
@@ -110,17 +113,23 @@ class GameForm extends Component {
                 <div className="pageStyle">
                     <form onSubmit={this.handleSubmit} action="" method="get" className="GameForm">
                         <div className="GameForm__Entry">
+
                             <label className="GameForm__Label" htmlFor="name">Enter player name: </label>
+
                             <input value={playerName} onChange={this.handleNameInput} type="text" className="GameForm__Input" name="name" id="name"></input>
+
                             <button type="button" onClick={this.handlePlayerCreate} className="GameForm__Button">Add Player</button>
+
+                            <button type="button" onClick={this.createRandomPlayers} className="GameForm__Button">Add 4 Random Players</button>
+
                             <button type="submit" className="GameForm__Button">Enter the Pongtrix!</button>
+
+
                             {Object.keys(errors).map((error, index) =>
                                 (errors[error] ? <p key={index} className="GameForm__Error">{this.errorTexts[error]}</p> : null))}
                         </div>
                     </form>
                     <Roster />
-                    <button onClick={this.testPlayerCreate} className="GameForm__Button">Add 4 Random Players</button>
-                    <button onClick={this.testPlayerCreate} className="GameForm__Button">Add 8 Random Players</button>
                 </div>
             </>)
     }
