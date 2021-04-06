@@ -1,20 +1,18 @@
 const increaseScore = (state, action) => {
 
-    const currentRound = { ...state.currentRound };
+    action.game.players = [...state.currentGame.players.map((player) => player.id === action.player.id ? { ...action.player } : { ...action.adversary })];
 
     return {
         ...state,
         rounds: state.rounds.map((round) =>
-            round.id === currentRound.id ?
-                {
-                    ...currentRound,
-                    games: currentRound.games.map((game) => game.id === action.game.id ?
-                        { ...action.game } : { ...game })
-                } : { ...round }),
+            round.id === state.currentRound.id ? {
+                ...state.currentRound,
+                games: round.games.map((game) => game.id === action.game.id ?
+                    { ...action.game } : { ...game })
+            } : { ...round }),
         currentGame: {
-            ...action.game,
-            players: state.currentGame.players.map((player) => action.player.id === player.id ? { ...action.player } : { ...player })
-        }
+            ...action.game,            
+        },
     }
 }
 
@@ -32,6 +30,7 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
 
     const nextRound = state.rounds.filter((round, index) => round.id === currentRound.id + 1)[0];
 
+
     const newGames = nextRound.games.map((game, index) => {
         const players = [...game.players];
         players[0].name = newPlayer1s[index];
@@ -46,8 +45,12 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
                 { ...nextRound, games: [...newGames] } :
                 round.id === match.round_id ?
                     { ...round, games: round.games.map((game) => game.id === match.id ? { ...match } : { ...game }) } : { ...round }),
-        currentRound: { ...nextRound },
-        currentGame: { ...nextRound.games[0] }
+        currentRound: {
+            ...nextRound,
+            games: [...newGames]
+        },
+        // This is the problem, sets the game to have "" players...
+        currentGame: { ...newGames[0] }
     }
 }
 

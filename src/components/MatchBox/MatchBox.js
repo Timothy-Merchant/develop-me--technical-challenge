@@ -60,7 +60,7 @@ const MatchBox = ({ nextMatch, endRound, currentGame, currentRound, gameStarted,
                     <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
                     <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
                 </div>
-                <button onClick={completeMatch}>Complete Match</button>
+                <button onClick={() => completeMatch()}>Complete Match</button>
             </div> :
             null
     );

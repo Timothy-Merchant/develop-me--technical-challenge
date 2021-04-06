@@ -43,14 +43,14 @@ export const deletePlayer = (data) => {
 
 export const updateScore = (data) => {
 
-    console.log(data);
-
-    const player = data[0];
-    const game = data[1];
+    const player = { ...data[0] };
+    const adversary = { ...data[1] };
+    const game = { ...data[2] };
 
     return {
         type: "INCREASE_SCORE",
         player: player,
+        adversary: adversary,
         game: game
     }
 }
@@ -70,7 +70,7 @@ export const finishRound = (data) => {
 
     const newPlayers = makeNewGames(currentRound.games.map(game => game.players[0].won === 1 ? game.players[0] : game.players[1]));
 
-    const currentGame = currentRound.games[currentRound.games.length - 1];
+    const currentGame = currentRound.games[currentRound.games.length - 1];    
 
     return {
         type: "NEW_ROUND",
