@@ -1,0 +1,18 @@
+@import "./Global.scss";
+
+.Error__Text {
+    margin: 4rem;
+    height: 1.5rem;    
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
+}
+
+.Error__Button {
+    @include button;
+    padding: 0.4rem;
+    border: 1px solid $GreenMid;
+    color: $GreenMid;
+    background-color: $GreenBlack;
+    font-family: $font;
+}
