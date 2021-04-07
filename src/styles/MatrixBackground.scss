@@ -2,6 +2,7 @@
 
 .MatrixBackground {
     height: 100%;
+    width: 100vw;
     position: absolute;
     left: 0;
     right: 0;
@@ -10,26 +11,24 @@
     background: $GreenBlack;
     z-index: -1;
     font-family: $font;
+    overflow: hidden;
+    display: flex;
 }
 
 .Matrix__Letters {
-    position: absolute;
     color: $GreenMid;
-    z-index: -1;
-    animation-duration: 5s;
-    animation-name: slidein;
+    animation: mymove 5s linear infinite;
 }
 
 .Matrix__Letter {
     margin: 1px;
 }
 
-@keyframes slidein {
+@keyframes mymove {
     from {
-        margin-top: -50%;        
+        transform: translateY(-1000px);
     }
-
     to {
-        margin-top: 100%;        
+        transform: translateY(1000px);
     }
 }

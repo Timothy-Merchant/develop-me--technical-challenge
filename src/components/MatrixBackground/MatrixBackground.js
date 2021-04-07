@@ -6,7 +6,9 @@ class MatrixBackground extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            count: 0,
+            duration: 0,
+            characters: 0,
         }
     }
 
@@ -27,14 +29,22 @@ class MatrixBackground extends Component {
     ]
 
 
+    onAnimationIteration = () => {
+        this.setState({ count: this.state.count + 1 });
+        console.log(this.state.count);
+      };
+
     render() {
 
         const gridX = 200;
-        const gridY = 50;
-
 
         return (
             <div className="MatrixBackground">
+                <div onAnimationIteration={this.onAnimationIteration} className="Matrix__Letters">
+                    {this.Letters.map(letter => (
+                        <p className="Matrix__Letter">{letter}</p>
+                    ))}
+                </div>
                 <div className="Matrix__Letters">
                     {this.Letters.map(letter => (
                         <p className="Matrix__Letter">{letter}</p>
