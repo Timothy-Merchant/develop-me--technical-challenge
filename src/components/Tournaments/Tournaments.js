@@ -7,10 +7,9 @@ class Tournaments extends Component {
         super(props)
 
         this.state = {
-
+            date: ""
         }
     }
-
 
     render() {
 
@@ -23,27 +22,36 @@ class Tournaments extends Component {
             <>
                 <div className="pageStyle">
                     {tournaments.map((tournament, tIndex) => (
-                        <div className="testing">
-                            <p>{tournament.id}</p>
+                        <div className="Tournament__Wrapper">
+                            <div className="Tournament__Info">
+                                <p>Tournament {tournament.id}</p>
+                                <p>Champion: {tournament.champion}</p>
+                                <p>{tournament.updated_at.substr(0, 10)}</p>
+                            </div>
                             {rounds.map((round, rIndex) => {
                                 if (round.tournament_id === tournament.id) {
                                     return (
                                         <>
-                                            <p>{round.id}</p>
-                                            {games.map((game, gIndex) => {
-                                                if (game.round_id === round.id) {
-                                                    return (
-                                                        <>
-                                                            {players.map((player, pIndex) => {
-                                                                if (player.game_id === game.id) {
-                                                                    return <p>Hello World 2</p>
-                                                                }
-                                                            })}
-                                                            <p>"hello world"</p>
-                                                        </>
-                                                    )
-                                                }
-                                            })}
+                                            <div className="Round__Wrapper">
+                                                <p>Round {rIndex + 1}</p>
+                                                {games.map((game, gIndex) => {
+
+                                                    if (game.round_id === round.id) {
+                                                        return (
+                                                            <>
+                                                                <p>Game {gIndex + 1}</p>
+                                                                {players.map((player, pIndex) => {
+                                                                    if (player.game_id === game.id) {
+                                                                        return (
+                                                                            <p>{player.name} {player.score} {player.won}</p>
+                                                                        )
+                                                                    }
+                                                                })}
+                                                            </>
+                                                        )
+                                                    }
+                                                })}
+                                            </div>
                                         </>
                                     )
                                 } else {
