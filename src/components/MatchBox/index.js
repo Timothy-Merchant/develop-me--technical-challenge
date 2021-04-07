@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import MatchBox from "./MatchBox";
 import { increaseScore, completeMatch, endRound, endTournament } from "../../data/actions/api";
+import { disableButtons } from "../../data/actions/state";
 
 const mapStateToProps = state => {
     return {
@@ -9,7 +10,7 @@ const mapStateToProps = state => {
         currentGame: state.currentGame,
         gameStarted: state.gameStarted,
         gameConcluded: state.gameConcluded,
-        rounds: state.rounds
+        rounds: state.rounds,        
     }
 }
 
@@ -19,6 +20,7 @@ const mapDispatchToProps = dispatch => {
         nextMatch: (data) => dispatch(completeMatch(data)),
         endRound: (data) => dispatch(endRound(data)),
         endTournament: (data) => dispatch(endTournament(data)),
+        disableButtons: () => dispatch(disableButtons())
     }
 }
 

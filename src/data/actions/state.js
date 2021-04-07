@@ -122,6 +122,12 @@ export const resetGame = () => {
     }
 }
 
+export const disableButtons = () => {
+    return {
+        type: "DISABLE_BUTTONS"
+    }
+}
+
 // HELPER FUNCTIONS
 
 const makeNewGames = (newPlayers) => {

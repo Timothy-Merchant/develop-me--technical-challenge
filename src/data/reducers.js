@@ -4,6 +4,7 @@ const increaseScore = (state, action) => {
 
     return {
         ...state,
+        inputDisabled: false,
         rounds: state.rounds.map((round) =>
             round.id === state.currentRound.id ? {
                 ...state.currentRound,
@@ -20,6 +21,7 @@ const endTournament = (state, { winner, lastRound }) => {
 
     return {
         ...state,
+        inputDisabled: false,
         rounds: state.rounds.map((round) => round.id === lastRound.id ? { ...lastRound } : { ...round }),
         gameConcluded: true,
         champion: winner
@@ -40,6 +42,7 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
 
     return {
         ...state,
+        inputDisabled: false,
         rounds: state.rounds.map((round) =>
             round.id === nextRound.id ?
                 { ...nextRound, games: [...newGames] } :
@@ -58,6 +61,7 @@ const startNewMatch = (state, { match, players }) => {
 
     return {
         ...state,
+        inputDisabled: false,
         rounds: state.rounds.map((round) => round.id === match.round_id ?
             {
                 ...round, games: round.games.map((game) => game.id === match.id ? {
@@ -98,6 +102,7 @@ const reducer = (state, action) => {
         case "NEW_ROUND": return setupNewRound(state, action);
         case "END_TOURNAMENT": return endTournament(state, action);
         case "RESET_GAME": return { ...state, gameStarted: false, gameConcluded: false, players: [] };
+        case "DISABLE_BUTTONS": return { ...state, inputDisabled: true };
         default: return state;
     }
 }
