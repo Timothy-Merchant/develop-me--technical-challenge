@@ -15,9 +15,9 @@
     display: flex;
 }
 
-.Matrix__Letters {
+.Matrix__LetterBox {
     color: $GreenMid;
-    animation: mymove 5s linear infinite;
+    // animation: mymove 5s linear infinite;
 }
 
 .Matrix__Letter {
@@ -26,7 +26,7 @@
 
 @keyframes mymove {
     from {
-        transform: translateY(-1000px);
+        transform: translateY(-2000px);
     }
     to {
         transform: translateY(1000px);
