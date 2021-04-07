@@ -11,12 +11,14 @@ import FourOhFour from '../FourOhFour/FourOhFour';
 import Nav from '../Nav';
 import LoadTournaments from '../LoadTournaments/';
 import Tournaments from '../Tournaments/';
+import MatrixBackground from '../MatrixBackground/MatrixBackground';
 
 const App = ({ gameConcluded, gameStarted }) => {
   return (
     <>
       <Router>
-        <Nav />
+        {/* <Nav /> */}
+        <MatrixBackground />
         <Switch>
           <Route exact path="/" component={GameForm}></Route>
           <Route exact path="/game" component={MatchBox}></Route>

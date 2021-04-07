@@ -1,0 +1,35 @@
+@import "./Global.scss";
+
+.MatrixBackground {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: $GreenBlack;
+    z-index: -1;
+    font-family: $font;
+}
+
+.Matrix__Letters {
+    position: absolute;
+    color: $GreenMid;
+    z-index: -1;
+    animation-duration: 5s;
+    animation-name: slidein;
+}
+
+.Matrix__Letter {
+    margin: 1px;
+}
+
+@keyframes slidein {
+    from {
+        margin-top: -50%;        
+    }
+
+    to {
+        margin-top: 100%;        
+    }
+}
