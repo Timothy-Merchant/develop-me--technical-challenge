@@ -10,6 +10,7 @@ import Victory from '../Victory';
 import FourOhFour from '../FourOhFour/FourOhFour';
 import Nav from '../Nav';
 import LoadTournaments from '../LoadTournaments/';
+import Tournaments from '../Tournaments/';
 
 const App = ({ gameConcluded, gameStarted }) => {
   return (
@@ -21,6 +22,7 @@ const App = ({ gameConcluded, gameStarted }) => {
           <Route exact path="/game" component={MatchBox}></Route>
           <Route exact path="/victory" component={Victory}></Route>
           <Route exact path="/loadTournaments" component={LoadTournaments}></Route>
+          <Route exact path="/tournaments" component={Tournaments}></Route>
           <FourOhFour />
         </Switch>
       </Router>

@@ -69,6 +69,7 @@ export const updateScore = (data) => {
         }
     }
 }
+
 export const finishMatch = ({ data }) => {
 
     return {

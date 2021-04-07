@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import Tournaments from "./Tournaments";
 
 const mapStateToProps = state => {
-    return {
-        loaded: state.loaded
+    return {        
+        tournaments: state.tournaments
     }
 }
 

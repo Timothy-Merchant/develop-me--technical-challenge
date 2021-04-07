@@ -6,6 +6,6 @@ import thunk from "redux-thunk";
 import persistState from "redux-localstorage";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, initial, composeEnhancers(applyMiddleware(thunk), applyMiddleware(createDebounce()), persistState()));
+const store = createStore(reducer, initial, composeEnhancers(applyMiddleware(thunk), applyMiddleware(createDebounce())));
 
 export default store;

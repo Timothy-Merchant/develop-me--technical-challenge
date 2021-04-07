@@ -1,5 +1,4 @@
-import '../../styles/FourOhFour.scss';
-import { Link } from 'react-router-dom';
+import '../../styles/Tournaments.scss';
 import { Component } from 'react';
 
 class Tournaments extends Component {
@@ -12,13 +11,47 @@ class Tournaments extends Component {
         }
     }
 
+
     render() {
+
+        const tournaments = this.props.tournaments[0];
+        const rounds = this.props.tournaments[1];
+        const games = this.props.tournaments[2];
+        const players = this.props.tournaments[3];
+
         return (
             <>
                 <div className="pageStyle">
-                    <p className="Error__Text">404: Page not found</p>
-                    <p className="Error__Text">Your page is out there, Neo, and it's looking for you, and it will find you if you want it to.</p>
-                    <Link className="Error__Button" to="">Go Back</Link>
+                    {tournaments.map((tournament, tIndex) => (
+                        <div className="testing">
+                            <p>{tournament.id}</p>
+                            {rounds.map((round, rIndex) => {
+                                if (round.tournament_id === tournament.id) {
+                                    return (
+                                        <>
+                                            <p>{round.id}</p>
+                                            {games.map((game, gIndex) => {
+                                                if (game.round_id === round.id) {
+                                                    return (
+                                                        <>
+                                                            {players.map((player, pIndex) => {
+                                                                if (player.game_id === game.id) {
+                                                                    return <p>Hello World 2</p>
+                                                                }
+                                                            })}
+                                                            <p>"hello world"</p>
+                                                        </>
+                                                    )
+                                                }
+                                            })}
+                                        </>
+                                    )
+                                } else {
+                                    return null;
+                                }
+                            })}
+                        </div>
+                    ))}
                 </div>
             </>
         )
