@@ -1,4 +1,7 @@
 export const loadTournaments = (data) => {
+    
+    console.log(data);
+    
     return {
         type: "LOAD_TOURNAMENTS",
         tournaments: data
@@ -66,7 +69,6 @@ export const updateScore = (data) => {
         }
     }
 }
-
 export const finishMatch = ({ data }) => {
 
     return {

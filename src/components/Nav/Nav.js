@@ -6,7 +6,7 @@ const Nav = () => {
     return (
         <>
             <div className="Nav__Wrapper">
-                <Link className="Nav__Link" to="">View Tournaments</Link>
+                <Link className="Nav__Link" to="/loadTournaments">View Tournaments</Link>
                 <Link className="Nav__Link" to="">Load Tournament</Link>
             </div>
         </>

@@ -79,8 +79,8 @@ const reducer = (state, action) => {
         case "LOAD_TOURNAMENTS": return {
             ...state,
             loaded: true,
-            tournaments: action.data
-        }
+            tournaments: action.tournaments
+        };
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]
