@@ -4,7 +4,7 @@ import { loadTournaments, finishTournament, beginTournament, updateScore, finish
 export const getTournaments = () => {
 
     return (dispatch) => {
-        axios.get("/tournaments").then(({ data }) => {
+        axios.get("/tournaments").then(({ data }) => {            
             dispatch(loadTournaments(data));
         })
     }

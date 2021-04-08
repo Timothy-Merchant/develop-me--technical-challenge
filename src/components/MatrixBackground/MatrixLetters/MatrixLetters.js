@@ -116,7 +116,7 @@ class MatrixLetters extends Component {
                 <div style={{ animation: `letterFall ${duration}s linear infinite` }} onAnimationEnd={this.onAnimationEnd} className="Matrix__LetterBox">
                     {
                         letters.map((letter, index) => (
-                            <MatrixLetter animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />
+                            <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />
                         ))
                     }
                 </div>

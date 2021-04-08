@@ -1,5 +1,6 @@
 import '../../styles/Tournaments.scss';
 import { Component } from 'react';
+import Pairing from '../Pairing';
 
 class Tournaments extends Component {
 
@@ -11,57 +12,42 @@ class Tournaments extends Component {
         }
     }
 
-    render() {
+    roundName = (index, length) => (
+        index === length ? "Final" :
+            index === length - 1 ? "Semi Finals" :
+                index === length - 2 ? "Quarter Finals" : `Round ${index}`
+    )
 
-        const tournaments = this.props.tournaments[0];
-        const rounds = this.props.tournaments[1];
-        const games = this.props.tournaments[2];
-        const players = this.props.tournaments[3];
+    render() {
 
         return (
             <>
                 <div className="pageStyle">
-                    {tournaments.map((tournament, tIndex) => (
-                        <div className="Tournament__Wrapper">
-                            <div className="Tournament__Info">
-                                <p>Tournament {tournament.id}</p>
-                                <p>Champion: {tournament.champion}</p>
-                                <p>{tournament.updated_at.substr(0, 10)}</p>
-                            </div>
-                            {rounds.map((round, rIndex) => {
-                                if (round.tournament_id === tournament.id) {
-                                    return (
-                                        <>
-                                            <div className="Round__Wrapper">
-                                                <p>Round {rIndex + 1}</p>
-                                                {games.map((game, gIndex) => {
 
-                                                    if (game.round_id === round.id) {
-                                                        return (
-                                                            <>
-                                                                <p>Game {gIndex + 1}</p>
-                                                                {players.map((player, pIndex) => {
-                                                                    if (player.game_id === game.id) {
-                                                                        return (
-                                                                            <p>{player.name} {player.score} {player.won}</p>
-                                                                        )
-                                                                    }
-                                                                    return null
-                                                                })}
-                                                            </>
-                                                        )
-                                                    }
-                                                    return null
-                                                })}
+
+                    {this.props.tournaments.map((tournament, tIndex) => (
+                        <>
+                            <div className="Tournament__Wrapper">
+                                <h1>Tournament {tournament.id}</h1>
+                                <p>{tournament.updated_at}</p>
+                                <div className="TournamentTree">
+                                    {tournament.rounds.map((round, index) => (
+                                        <div key={index} style={{ display: "flex", flexDirection: "column" }}>
+                                            <div className="PairingRow">
+                                                <h1 className="PairingRow__title">{this.roundName(index + 1, tournament.rounds.length)}</h1>
+                                                {round.games.map((game, index) => (
+                                                    <Pairing game={game} key={index} />
+                                                ))}
                                             </div>
-                                        </>
-                                    )
-                                } else {
-                                    return null;
-                                }
-                            })}
-                        </div>
-                    ))}
+                                        </div>
+                                    ))}
+                                </div>
+                                <p>Champion: {tournament.champion}</p>
+                            </div>
+                        </>
+                    )
+                    )
+                    }
                 </div>
             </>
         )

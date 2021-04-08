@@ -14,22 +14,30 @@ table {
     color: $GreenMid;
 }
 
-td {    
+td {
     border: 1px solid $GreenMid;
 }
 
-.pairing__player {  
-    text-align: center;      
+.won {
+    color: $GreenXL;
+}
+
+.lost {
+    color: $GreenDark;
+}
+
+.pairing__player {
+    text-align: center;
     height: 2rem;
 }
-.pairing__name {    
+.pairing__name {
     width: 13rem;
 }
-.pairing__score {    
+.pairing__score {
     text-align: center;
     width: 3rem;
 }
-.pairing__win {    
+.pairing__win {
     text-align: center;
     width: 3rem;
 }

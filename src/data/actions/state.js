@@ -1,10 +1,8 @@
 export const loadTournaments = (data) => {
-    
-    console.log(data);
-    
+        
     return {
         type: "LOAD_TOURNAMENTS",
-        tournaments: data
+        tournaments: data[0]
     }
 }
 
