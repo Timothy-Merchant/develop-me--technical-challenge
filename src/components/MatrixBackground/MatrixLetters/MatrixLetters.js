@@ -1,5 +1,6 @@
 import '../../../styles/MatrixBackground.scss';
 import { Component } from "react";
+import { endRound } from '../../../data/actions/api';
 
 class MatrixLetters extends Component {
 
@@ -7,7 +8,7 @@ class MatrixLetters extends Component {
         super(props)
         this.state = {
             duration: 4,
-            letters: [],
+            letters: []
         }
     }
 
@@ -50,17 +51,21 @@ class MatrixLetters extends Component {
         "ツ",
     ]
 
-    onAnimationIteration = () => {
-        this.setState({ count: this.state.count + 1 });
+    onAnimationEnd = () => {
+
+        this.setState({ count: this.state.count + 1, toggle: false });
         const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
-        const newDuration = Math.floor(Math.random() * (10 - 4) + 4);
+
         const newLetters = [];
+
         let counter = 0;
+
         while (counter < numberOfLetters) {
             counter += 1;
             newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
         }
 
+        const newDuration = Math.floor(Math.random() * (10 - 4) + 4);
         this.setState({
             letters: newLetters,
             duration: newDuration
@@ -69,11 +74,13 @@ class MatrixLetters extends Component {
 
     render() {
 
+        const { duration, letters } = this.state
+
         return (
             <>
-                <div style={{ animation: `mymove ${this.state.duration}s linear infinite` }} onAnimationIteration={this.onAnimationIteration} className="Matrix__LetterBox">
+                <div style={{ animation: `letterFall ${duration}s linear infinite` }} onAnimationIteration={this.onAnimationEnd} className="Matrix__LetterBox">
                     {
-                        this.state.letters.map(letter => (
+                        letters.map(letter => (
                             <p className="Matrix__Letter">{letter}</p>
                         ))
                     }

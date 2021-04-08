@@ -43,7 +43,7 @@ class GameForm extends Component {
     validatePlayers = (players) => this.setState({
         errors: {
             ...this.state.errors,
-            tooFewPlayers: players.length < 1,
+            tooFewPlayers: players.length <= 1,
             unevenPlayers: players.length && (players.length & (players.length - 1)) !== 0
         }
     });

@@ -16,7 +16,7 @@
 }
 
 .Matrix__LetterBox {
-    color: $GreenMid;
+    color: $GreenDark;
     // animation: mymove 5s linear infinite;
 }
 
@@ -24,7 +24,7 @@
     margin: 1px;
 }
 
-@keyframes mymove {
+@keyframes letterFall {
     from {
         transform: translateY(-2000px);
     }
