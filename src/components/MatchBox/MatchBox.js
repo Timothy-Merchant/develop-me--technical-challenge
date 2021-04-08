@@ -21,8 +21,6 @@ class MatchBox extends Component {
             disableButtons();
 
             const updatedGame = { ...currentGame };
-            updatedGame.players[0].won = 1;
-            updatedGame.players[1].won = 2;
 
             currentRound.id === rounds[rounds.length - 1].id && currentGame.id === currentRound.games[currentRound.games.length - 1].id ?
                 endTournament({

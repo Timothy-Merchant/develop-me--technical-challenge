@@ -57,6 +57,8 @@ export const updateScore = (data) => {
     const adversary = { ...data[1] };
     const game = { ...data[2] };
 
+    console.log(player);
+
     return {
         type: "INCREASE_SCORE",
         player: player,
@@ -70,7 +72,7 @@ export const updateScore = (data) => {
     }
 }
 
-export const finishMatch = ({ data }) => {
+export const finishMatch = ({ data }) => {    
 
     return {
         type: "END_MATCH",
