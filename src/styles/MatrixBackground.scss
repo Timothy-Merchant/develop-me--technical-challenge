@@ -2,8 +2,8 @@
 
 .MatrixBackground {
     height: 100%;
-    width: 100vw;
-    position: absolute;
+    max-width: 100%;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
@@ -44,7 +44,7 @@
 
 @keyframes colorChangeLight {
     from {
-        color: $GreenMid;
+        color: $GreenDark;
     }
     to {
         color: $GreenXL;

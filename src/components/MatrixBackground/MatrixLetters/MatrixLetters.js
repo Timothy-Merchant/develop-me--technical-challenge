@@ -67,7 +67,7 @@ class MatrixLetters extends Component {
             newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
         }
 
-        const newDuration = Math.floor(Math.random() * (10 - 4) + 4);
+        const newDuration = Math.floor(Math.random() * (12 - 5) + 5);
 
         this.setState({
             letters: newLetters,
@@ -102,9 +102,7 @@ class MatrixLetters extends Component {
     }
 
     setupLetterSpeed = () => {
-        const dice = Math.floor(Math.random() * (100 - 1) + 1);
-
-        const alternationSpeed = Math.ceil(dice / 10);
+        const alternationSpeed = Math.floor(Math.random() * (5 - 1) + 1);
 
         return alternationSpeed;
     }
