@@ -1,15 +1,18 @@
 import '../../../styles/MatrixBackground.scss';
 import { Component } from "react";
-import { endRound } from '../../../data/actions/api';
+import MatrixLetter from './MatrixLetter';
 
 class MatrixLetters extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            duration: 4,
+            duration: 1,
             letters: []
         }
+
+        this.setupLetterSpeed = this.setupLetterSpeed.bind(this);
+        this.setupLetterStyle = this.setupLetterStyle.bind(this);
     }
 
     LettersArray = [
@@ -51,9 +54,8 @@ class MatrixLetters extends Component {
         "ツ",
     ]
 
-    onAnimationEnd = () => {
+    componentDidMount = () => {
 
-        this.setState({ count: this.state.count + 1, toggle: false });
         const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
 
         const newLetters = [];
@@ -66,11 +68,46 @@ class MatrixLetters extends Component {
         }
 
         const newDuration = Math.floor(Math.random() * (10 - 4) + 4);
+
         this.setState({
             letters: newLetters,
-            duration: newDuration
+            duration: newDuration,
         })
     };
+
+    onAnimationEnd = () => {
+
+        const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
+
+        const newLetters = [];
+
+        let counter = 0;
+
+        while (counter < numberOfLetters) {
+            counter += 1;
+            newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
+        }
+
+        this.setState({
+            letters: newLetters
+        })
+    };
+
+    setupLetterStyle = () => {
+        const dice = Math.floor(Math.random() * (100 - 1) + 1);
+
+        const animationStyle = dice < 10 ? 'colorChangeLight' : 'colorChangeDark';
+
+        return animationStyle
+    }
+
+    setupLetterSpeed = () => {
+        const dice = Math.floor(Math.random() * (100 - 1) + 1);
+
+        const alternationSpeed = Math.ceil(dice / 10);
+
+        return alternationSpeed;
+    }
 
     render() {
 
@@ -78,10 +115,10 @@ class MatrixLetters extends Component {
 
         return (
             <>
-                <div style={{ animation: `letterFall ${duration}s linear infinite` }} onAnimationIteration={this.onAnimationEnd} className="Matrix__LetterBox">
+                <div style={{ animation: `letterFall ${duration}s linear infinite` }} onAnimationEnd={this.onAnimationEnd} className="Matrix__LetterBox">
                     {
-                        letters.map(letter => (
-                            <p className="Matrix__Letter">{letter}</p>
+                        letters.map((letter, index) => (
+                            <MatrixLetter animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />
                         ))
                     }
                 </div>

@@ -17,7 +17,7 @@ const App = ({ gameConcluded, gameStarted }) => {
   return (
     <>
       <Router>
-        {/* <Nav /> */}
+        <Nav />
         <MatrixBackground />
         <Switch>
           <Route exact path="/" component={GameForm}></Route>

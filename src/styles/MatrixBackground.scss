@@ -32,3 +32,21 @@
         transform: translateY(1000px);
     }
 }
+
+@keyframes colorChangeDark {
+    from {
+        color: $GreenDark;
+    }
+    to {
+        color: $GreenMid;
+    }
+}
+
+@keyframes colorChangeLight {
+    from {
+        color: $GreenMid;
+    }
+    to {
+        color: $GreenXL;
+    }
+}

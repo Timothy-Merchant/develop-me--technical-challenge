@@ -46,10 +46,12 @@ class Tournaments extends Component {
                                                                             <p>{player.name} {player.score} {player.won}</p>
                                                                         )
                                                                     }
+                                                                    return null
                                                                 })}
                                                             </>
                                                         )
                                                     }
+                                                    return null
                                                 })}
                                             </div>
                                         </>

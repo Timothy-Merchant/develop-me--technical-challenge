@@ -11,10 +11,7 @@ class MatrixBackground extends Component {
     }
 
 
-    render() {
-
-        const { count, duration, letters } = this.state;
-        const gridX = 200;
+    render() {     
 
         return (
             <div className="MatrixBackground">
