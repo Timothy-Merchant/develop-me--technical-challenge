@@ -10,11 +10,7 @@
     border: 1px solid $GreenMid;
     color: $GreenMid;
     font-family: $font;
-    transition: .5s ease-in;
-}
-
-.closed {
-    height: 0;
+    transition: 0.5s ease-in;
 }
 
 .MatchBox__Header {
@@ -35,16 +31,16 @@
 
 .MatchBox__GameAlerts {
     display: flex;
-    justify-content: space-evenly;        
+    justify-content: space-evenly;
     text-align: center;
 }
 
-.MatchBox__Alert {    
-    width: 35rem;    
+.MatchBox__Alert {
+    width: 35rem;
 }
 
-.MatchBox__Alert--Deuce {    
-    width: 10rem;    
+.MatchBox__Alert--Deuce {
+    width: 10rem;
 }
 
 .MatchBox__Button {
@@ -55,4 +51,18 @@
     color: $GreenMid;
     background-color: $GreenBlack;
     font-family: $font;
+}
+
+.MatchBox__Wrapper--Closed {
+    animation: close 3s linear 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes close {
+    from {
+        height: 0%;
+    }
+    to {
+        height: 100%;
+    }
 }

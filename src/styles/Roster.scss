@@ -25,8 +25,8 @@
 }
 
 // table head styles
-.Roster__TableHead-No {    
-    width: 1rem;    
+.Roster__TableHead-No {
+    width: 1rem;
 }
 .Roster__TableHead-Name {
     width: 25rem;
@@ -35,9 +35,43 @@
     width: 1.5rem;
 }
 
+.Roster__TableData-deleteButtonCell:hover {
+    padding: 0;
+}
+
 // button style
 .Roster__TableData-deletebutton {
-    @include button;
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: $GreenBlack;
+    color: $GreenMid;
+    font-family: $font;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;    
     width: 100%;
-    margin-bottom: 2px;
+    height: 100%;
+    padding-bottom: 2px;
+}
+
+.Roster__TableData-deletebutton:hover {
+    animation: deletePress 0.2s linear 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes deletePress {
+    from {
+        color: $GreenMid;
+        background-color: $GreenBlack;
+    }
+    to {
+        color: $GreenXL;
+        background-color: $GreenDark;
+    }
 }

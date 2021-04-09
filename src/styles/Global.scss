@@ -21,4 +21,57 @@ $font: "Press Start 2P", cursive;
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
+    &:hover {
+        animation: buttonPress 0.2s linear 1;
+        animation-fill-mode: forwards;
+    }
+}
+
+@mixin counterButton {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: $GreenBlack;
+    color: $GreenMid;
+    font-family: $font;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    &:hover {
+        animation: counterPress 0.2s linear 1;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes buttonPress {
+    from {
+        color: $GreenMid;
+        border: 1px solid $GreenMid;
+        background-color: $GreenBlack;
+    }
+    to {
+        color: $GreenXL;
+        border: 1px solid $GreenXL;
+        background-color: $GreenDark;
+    }
+}
+
+@keyframes counterPress {
+    from {
+        color: $GreenMid;
+        border: 1px solid $GreenMid;
+        background-color: $GreenBlack;
+        transform: translate(0px, 0px);
+    }
+    to {
+        color: $GreenXL;
+        border: 2px solid $GreenXL;
+        background-color: $GreenDark;
+        transform: translate(3px, 3px);
+    }
 }

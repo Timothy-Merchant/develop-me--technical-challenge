@@ -44,7 +44,9 @@ class MatchBox extends Component {
         }
     }
 
+
     completeMatch = () => {
+
 
         const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch } = this.props;
 
@@ -106,41 +108,39 @@ class MatchBox extends Component {
 
         return (
             gameConcluded ? <Redirect to="victory" /> :
-                <>
-                    <div className="pageStyle">
-                        <div className="MatchBox__Wrapper">
-                            <h1 className="MatchBox__Header">{this.calculateTitle()}</h1>
-                            <div className="MatchBox__Players">
-                                <Player increaseScore={(player) => increaseScore({
-                                    player1or2: 1,
-                                    player: player,
-                                    game: currentGame,
-                                    tournamentID: tournamentID,
-                                    roundID: currentRound.id,
-                                    gameID: player.game_id,
-                                    playerID: player.id,
-                                })} player={currentGame.players[0]} />
-                                <p className="MatchBox__Versus">VS</p>
-                                <Player increaseScore={(player) => increaseScore({
-                                    player1or2: 2,
-                                    player: player,
-                                    game: currentGame,
-                                    tournamentID: tournamentID,
-                                    roundID: currentRound.id,
-                                    gameID: player.game_id,
-                                    playerID: player.id,
-                                })} player={currentGame.players[1]} />
-                            </div>
-                            <div className="MatchBox__GameAlerts">
-                                <p className="MatchBox__Alert">{currentGame.service === 0 ? "Service" : ""}</p>
-                                <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
-                                <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
-                            </div>
-                            <button className="MatchBox__Button" onClick={() => this.completeMatch()}>Auto Complete Match</button>
+                <div className="pageStyle">
+                    <div className="MatchBox__Wrapper">
+                        <h1 className="MatchBox__Header">{this.calculateTitle()}</h1>
+                        <div className="MatchBox__Players">
+                            <Player increaseScore={(player) => increaseScore({
+                                player1or2: 1,
+                                player: player,
+                                game: currentGame,
+                                tournamentID: tournamentID,
+                                roundID: currentRound.id,
+                                gameID: player.game_id,
+                                playerID: player.id,
+                            })} player={currentGame.players[0]} />
+                            <p className="MatchBox__Versus">VS</p>
+                            <Player increaseScore={(player) => increaseScore({
+                                player1or2: 2,
+                                player: player,
+                                game: currentGame,
+                                tournamentID: tournamentID,
+                                roundID: currentRound.id,
+                                gameID: player.game_id,
+                                playerID: player.id,
+                            })} player={currentGame.players[1]} />
                         </div>
-                        <TournamentTree />
+                        <div className="MatchBox__GameAlerts">
+                            <p className="MatchBox__Alert">{currentGame.service === 0 ? "Service" : ""}</p>
+                            <p className="MatchBox__Alert--Deuce">{currentGame.deuce === 1 ? "Deuce" : ""}</p>
+                            <p className="MatchBox__Alert">{currentGame.service === 1 ? "Service" : ""}</p>
+                        </div>
+                        <button className="MatchBox__Button" onClick={() => this.completeMatch()}>Auto Complete Match</button>
                     </div>
-                </>
+                    <TournamentTree />
+                </div>
         )
     }
 
