@@ -12,6 +12,7 @@ class MatrixLetters extends Component {
         }
 
         this.setupLetterSpeed = this.setupLetterSpeed.bind(this);
+        this.setupVictoryLetterSpeed = this.setupVictoryLetterSpeed.bind(this);
         this.setupLetterStyle = this.setupLetterStyle.bind(this);
     }
 
@@ -111,6 +112,12 @@ class MatrixLetters extends Component {
         return alternationSpeed;
     }
 
+    setupVictoryLetterSpeed = () => {
+        const alternationSpeed = Math.ceil(Math.random() * (3 - 1) + 1);
+
+        return alternationSpeed;
+    }
+
     render() {
 
         const { duration, letters } = this.state
@@ -122,10 +129,10 @@ class MatrixLetters extends Component {
                         <div style={{ animation: `letterFallVictory ${duration}s linear 1 forwards` }}>
                             {
                                 letters.map((letter, index) => (
-                                    <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />
+                                    <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupVictoryLetterSpeed()} letter={letter} />
                                 ))
                             }
-                            <MatrixLetter animationStyle='colorChangeVictory' animationSpeed={this.setupLetterSpeed()} letter={this.props.letter} />
+                            <MatrixLetter animationStyle='colorChangeVictory' animationSpeed={this.setupVictoryLetterSpeed()} letter={this.props.letter} />
                         </div>
                     </div>
                 </> :

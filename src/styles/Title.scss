@@ -1,0 +1,50 @@
+@import "./Global.scss";
+
+.Title__Wrapper {
+    display: flex;    
+    font-family: $font;    
+}
+
+.Title__Letter {
+    border: $GreenXL;
+    color: $GreenDark;
+    font-size: 5rem;    
+    text-shadow:
+     -1px -1px 0 $GreenXL,  
+      1px -1px 0 $GreenXL,
+      -1px 1px 0 $GreenXL,
+       1px 1px 0 $GreenXL;
+}
+
+@keyframes top {
+    from {
+        transform: translateY(-2000px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes right {
+    from {
+        transform: translateX(2000px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes bottom {
+    from {
+        transform: translateY(2000px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes left {
+    from {
+        transform: translateX(-2000px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

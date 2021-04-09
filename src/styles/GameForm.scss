@@ -2,7 +2,7 @@
 
 .GameForm {    
     background: $GreenBlack;
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     width: 30rem;
     display: flex;
     flex-direction: column;
@@ -15,6 +15,7 @@
 .GameForm__Entry {
     display: flex;
     flex-direction: column;
+    
     gap: 0.5rem;
 }
 
@@ -28,6 +29,7 @@
     color: $GreenMid;
     background-color: $GreenBlack;
     font-family: $font;
+    outline: none;
 }
 
 .GameForm__Button {

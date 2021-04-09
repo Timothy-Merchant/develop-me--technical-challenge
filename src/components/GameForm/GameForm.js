@@ -3,6 +3,7 @@ import RandomNames from './randomNames.json';
 import { Component } from "react";
 import Roster from "../Roster";
 import { Redirect } from "react-router-dom";
+import Title from '../Title';
 
 class GameForm extends Component {
 
@@ -100,13 +101,14 @@ class GameForm extends Component {
     render() {
         const { gameStarted } = this.props;
         const { playerName, errors } = this.state;
-        
+
         return (
 
 
             gameStarted ? <Redirect to="game" /> :
                 <>
                     <div className="pageStyle">
+                        <Title />
                         <form onSubmit={this.handleSubmit} action="" method="get" className="GameForm">
                             <div className="GameForm__Entry">
 

@@ -8,6 +8,7 @@ const Victory = ({ champion, gameStarted, reset }) => {
         !gameStarted ? <Redirect to="" /> :
             <>
                 <div className="pageStyle">
+
                 </div>
             </>
     );
