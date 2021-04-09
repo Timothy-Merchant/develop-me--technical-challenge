@@ -2,7 +2,7 @@
 
 .Player__Wrapper {
     border: 1px solid $GreenMid;
-    background: $GreenDark;
+    background: $GreenBlack;
     width: 15rem;
     height: 14rem;
     color: $GreenMid;
@@ -15,17 +15,47 @@
     justify-content: center;
 }
 
+.Player__Score {
+    font-size: 4rem;
+    margin: 5px 0 10px 6px;
+}
+
 .Player__Button {
     @include button;
     width: 3rem;
-    height: 3rem;    
-    border: 1px solid $GreenMid;        
-    font-size: 2.5rem;          
-    font-family: 'Courier New', Courier, monospace;   
-    border-radius: 100%;   
+    height: 3rem;
+    border: 1px solid $GreenMid;
+    font-size: 2.5rem;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 100%;
+    transition: ease-in-out;
 }
 
-.Player__Score {    
-    font-size: 4rem;
-    margin: 5px 0 10px 6px;
+.Player__Button::backdrop {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid $GreenMid;
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+}
+
+.Player__Button:hover {
+    animation: buttonPress 0.2s linear 1; 
+    animation-fill-mode: forwards;   
+}
+
+
+
+@keyframes buttonPress {
+    from {
+        color: $GreenMid;        
+        background-color: $GreenBlack;
+        transform: translate(0px, 0px);        
+    }
+    to {        
+        color: $GreenXL;
+        background-color: $GreenDark;        
+        transform: translate(3px, 3px);
+    }
 }

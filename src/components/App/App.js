@@ -11,7 +11,7 @@ import FourOhFour from '../FourOhFour/FourOhFour';
 import Nav from '../Nav';
 import LoadTournaments from '../LoadTournaments/';
 import Tournaments from '../Tournaments/';
-import MatrixBackground from '../MatrixBackground/MatrixBackground';
+import MatrixBackground from '../MatrixBackground/';
 
 const App = ({ gameConcluded, gameStarted }) => {
   return (

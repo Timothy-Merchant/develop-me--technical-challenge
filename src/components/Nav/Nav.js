@@ -6,8 +6,8 @@ const Nav = () => {
     return (
         <>
             <div className="Nav__Wrapper">
-                <Link className="Nav__Link" to="/loadTournaments">View Tournaments</Link>
-                <Link className="Nav__Link" to="">Load Tournament</Link>
+                <Link className="Nav__Link" to="/">New Tournament</Link>
+                <Link className="Nav__Link" to="/loadTournaments">Tournament History</Link>
             </div>
         </>
     )
