@@ -1,8 +1,13 @@
 export const loadTournaments = (data) => {
-        
+
     return {
         type: "LOAD_TOURNAMENTS",
         tournaments: data[0]
+    }
+}
+export const tournamentLoaded = () => {
+    return {
+        type: "TOURNAMENTS_LOADED"
     }
 }
 
@@ -12,6 +17,7 @@ export const createPlayer = (data) => {
         newPlayer: data
     }
 }
+
 
 export const beginTournament = (data) => {
 
@@ -70,7 +76,7 @@ export const updateScore = (data) => {
     }
 }
 
-export const finishMatch = ({ data }) => {    
+export const finishMatch = ({ data }) => {
 
     return {
         type: "END_MATCH",

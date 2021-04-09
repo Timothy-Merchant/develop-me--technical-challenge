@@ -85,8 +85,8 @@ class MatrixBackground extends Component {
                     <MatrixLetters />
                     {this.props.gameConcluded ?
                         <div className="MatrixBackground__VictorySegment">
-                            {this.props.champion.split("").map((letter) => (
-                                <MatrixLetters letter={letter} type="victory" />
+                            {this.props.champion.split("").map((letter, index) => (
+                                <MatrixLetters key={index} letter={letter} type="victory" />
                             ))}
                             <MatrixLetters letter="_" type="victory" />
                             <MatrixLetters letter="W" type="victory" />

@@ -119,7 +119,7 @@ class MatrixLetters extends Component {
             this.props.type === "victory" ?
                 <>
                     <div className="Matrix__VictoryBox">
-                        <div style={{ animation: `letterFallVictory ${duration}s linear 1`, animationFillMode: "forwards" }}>
+                        <div style={{ animation: `letterFallVictory ${duration}s linear 1 forwards` }}>
                             {
                                 letters.map((letter, index) => (
                                     <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />

@@ -18,6 +18,10 @@ class Tournaments extends Component {
                 index === length - 2 ? "Quarter Finals" : `Round ${index}`
     )
 
+    componentDidMount() {
+        this.props.tournamentLoaded();
+    }
+
     render() {
 
         return (
@@ -26,25 +30,25 @@ class Tournaments extends Component {
 
 
                     {this.props.tournaments.map((tournament, tIndex) => (
-                        <>
-                            <div className="Tournament__Wrapper">
-                                <h1>Tournament {tournament.id}</h1>
-                                <p>{tournament.updated_at}</p>
-                                <div className="TournamentTree">
-                                    {tournament.rounds.map((round, index) => (
-                                        <div key={index} style={{ display: "flex", flexDirection: "column" }}>
-                                            <div className="PairingRow">
-                                                <h1 className="PairingRow__title">{this.roundName(index + 1, tournament.rounds.length)}</h1>
-                                                {round.games.map((game, index) => (
-                                                    <Pairing game={game} key={index} />
-                                                ))}
-                                            </div>
+
+                        <div key={tIndex} className="Tournament__Wrapper">
+                            <h1>Tournament {tournament.id}</h1>
+                            <p>{tournament.updated_at}</p>
+                            <div className="TournamentTree">
+                                {tournament.rounds.map((round, index) => (
+                                    <div key={index} style={{ display: "flex", flexDirection: "column" }}>
+                                        <div className="PairingRow">
+                                            <h1 className="PairingRow__title">{this.roundName(index + 1, tournament.rounds.length)}</h1>
+                                            {round.games.map((game, index) => (
+                                                <Pairing game={game} key={index} />
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
-                                <p>Champion: {tournament.champion}</p>
+                                    </div>
+                                ))}
                             </div>
-                        </>
+                            <p>Champion: {tournament.champion}</p>
+                        </div>
+
                     )
                     )
                     }
