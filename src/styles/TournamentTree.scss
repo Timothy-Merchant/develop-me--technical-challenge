@@ -24,3 +24,10 @@
     margin: 0px;
     padding: 7px;
 }
+
+@media (max-width: $breakpoint-iPhoneX) {
+    .TournamentTree {
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+}

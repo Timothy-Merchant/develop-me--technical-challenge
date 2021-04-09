@@ -18,7 +18,7 @@ class GameForm extends Component {
     }
 
     errorTexts = {
-        invalidName: "Please enter a name between 3 and 15 characters",
+        invalidName: "Please enter a name between 3 and 12 characters",
         tooFewPlayers: "Please add at least 2 players to the tournament",
         unevenPlayers: "Total player count must be a power of 2 (2, 4, 8, 16, 32 etc...)",
         tooManyPlayers: "Pongtrix currently supports a maximum of 10 players"
@@ -36,7 +36,7 @@ class GameForm extends Component {
     validateName = (name) => this.setState({
         errors: {
             ...this.state.errors,
-            invalidName: name.length <= 2 || name.length >= 15
+            invalidName: name.length <= 2 || name.length >= 12
         }
     });
 
