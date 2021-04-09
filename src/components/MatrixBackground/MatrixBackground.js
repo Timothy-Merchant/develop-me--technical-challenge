@@ -88,7 +88,7 @@ class MatrixBackground extends Component {
                             {this.props.champion.split("").map((letter, index) => (
                                 <MatrixLetters key={index} letter={letter} type="victory" />
                             ))}
-                            <MatrixLetters letter="_" type="victory" />
+                            <MatrixLetters letter="-" type="victory" />
                             <MatrixLetters letter="W" type="victory" />
                             <MatrixLetters letter="i" type="victory" />
                             <MatrixLetters letter="n" type="victory" />

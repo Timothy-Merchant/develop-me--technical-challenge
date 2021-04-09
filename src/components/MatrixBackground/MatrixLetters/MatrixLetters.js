@@ -11,12 +11,16 @@ class MatrixLetters extends Component {
             letters: []
         }
 
-        this.setupLetterSpeed = this.setupLetterSpeed.bind(this);
-        this.setupVictoryLetterSpeed = this.setupVictoryLetterSpeed.bind(this);
+        this.setupLetterSpeed = this.setupLetterSpeed.bind(this);        
         this.setupLetterStyle = this.setupLetterStyle.bind(this);
     }
 
     LettersArray = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
         "Z",
         "X",
         "Y",
@@ -70,13 +74,16 @@ class MatrixLetters extends Component {
 
         const newDuration = Math.floor(Math.random() * (12 - 5) + 5);
 
-        // if (this.props.type === "victory") {
-        //     newLetters.push(this.props.letter);
-        // }
+        let newVictoryDuration = 0;
+
+        if (this.props.type === "victory") {
+            newVictoryDuration = Math.floor(Math.random() * (5000 - 2200) + 2200);
+        }
 
         this.setState({
             letters: newLetters,
             duration: newDuration,
+            victoryDuration: newVictoryDuration
         })
     };
 
@@ -107,32 +114,24 @@ class MatrixLetters extends Component {
     }
 
     setupLetterSpeed = () => {
-        const alternationSpeed = Math.floor(Math.random() * (5 - 1) + 1);
-
-        return alternationSpeed;
-    }
-
-    setupVictoryLetterSpeed = () => {
-        const alternationSpeed = Math.ceil(Math.random() * (3 - 1) + 1);
-
-        return alternationSpeed;
+        return Math.floor(Math.random() * (5 - 1) + 1);
     }
 
     render() {
 
-        const { duration, letters } = this.state
+        const { duration, victoryDuration, letters } = this.state
 
         return (
             this.props.type === "victory" ?
                 <>
                     <div className="Matrix__VictoryBox">
-                        <div style={{ animation: `letterFallVictory ${duration}s linear 1 forwards` }}>
+                        <div style={{ animation: `letterFallVictory ${victoryDuration}ms linear 1 forwards` }}>
                             {
                                 letters.map((letter, index) => (
-                                    <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupVictoryLetterSpeed()} letter={letter} />
+                                    <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />
                                 ))
                             }
-                            <MatrixLetter animationStyle='colorChangeVictory' animationSpeed={this.setupVictoryLetterSpeed()} letter={this.props.letter} />
+                            <MatrixLetter animationStyle='colorChangeVictory' animationSpeed={this.setupLetterSpeed()} letter={this.props.letter} />
                         </div>
                     </div>
                 </> :

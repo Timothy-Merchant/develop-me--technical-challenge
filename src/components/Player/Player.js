@@ -6,7 +6,7 @@ const Player = ({ player, increaseScore, inputDisabled, disableButtons }) => {
         disableButtons();
         increaseScore(player);
     }
-    console.log(inputDisabled)
+    
     return (
         <div className="Player__Wrapper">
             <h1>{player.name}</h1>
