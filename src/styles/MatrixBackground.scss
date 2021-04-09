@@ -15,25 +15,31 @@
     display: flex;
 }
 
-.MatrixBackground--Victory {    
-    width: 60%;
+.MatrixBackground--Victory {
     position: fixed;
     top: 0;
-    left: 20%;
-    right: 20%;
+    left: 0;
+    right: 0;
     bottom: 0;
-    background: red;
+    background: $GreenBlack;
     z-index: 1;
     font-family: $font;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 
-.Matrix__LetterBox {
-    color: $GreenDark;
-    // animation: mymove 5s linear infinite;
+.MatrixBackground__VictorySegment {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 50vh;
+}
+
+.Matrix__VictoryBox {
+    z-index: -1;
+    background: $GreenBlack;
+    background-size: 100vh;
 }
 
 .Matrix__Letter {
@@ -46,6 +52,15 @@
     }
     to {
         transform: translateY(1000px);
+    }
+}
+
+@keyframes letterFallVictory {
+    from {
+        transform: translateY(-1000px);
+    }
+    to {
+        transform: translateY(0px);
     }
 }
 
@@ -64,5 +79,14 @@
     }
     to {
         color: $GreenXL;
+    }
+}
+
+@keyframes colorChangeVictory {
+    from {
+        color: red;
+    }
+    to {
+        color: purple;
     }
 }

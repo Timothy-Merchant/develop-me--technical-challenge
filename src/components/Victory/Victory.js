@@ -1,6 +1,6 @@
 import { Redirect } from 'react-router';
 import '../../styles/Victory.scss';
-import TournamentTree from '../TournamentTree/';
+// import TournamentTree from '../TournamentTree/';
 
 const Victory = ({ champion, gameStarted, reset }) => {
 
@@ -8,11 +8,6 @@ const Victory = ({ champion, gameStarted, reset }) => {
         !gameStarted ? <Redirect to="" /> :
             <>
                 <div className="pageStyle">
-                    <div className="Victory__Message">
-                        <p>{champion} Wins!</p>
-                    </div>
-                    <button className="Victory__Button" onClick={() => reset()}>Start new Tournament</button>
-                    <TournamentTree />
                 </div>
             </>
     );

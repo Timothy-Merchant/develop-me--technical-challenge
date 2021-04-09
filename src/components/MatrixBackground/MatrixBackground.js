@@ -10,129 +10,160 @@ class MatrixBackground extends Component {
         }
     }
 
-
     render() {
+
+        // const { width } = this.state
 
         return (
             <div className="MatrixBackground">
-                {this.props.gameConcluded ?
-                    <div className="MatrixBackground--Victory">
-                        {this.props.champion.split("").map((letter) => (
-                            <MatrixLetters letter={letter} />
-                        ))}
-                    </div> : null
-                }
-
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
-                <MatrixLetters />
+                <div className="MatrixBackground--Victory">
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    {this.props.gameConcluded ?
+                        <div className="MatrixBackground__VictorySegment">
+                            {this.props.champion.split("").map((letter) => (
+                                <MatrixLetters letter={letter} type="victory" />
+                            ))}
+                            <MatrixLetters letter="_" type="victory" />
+                            <MatrixLetters letter="W" type="victory" />
+                            <MatrixLetters letter="i" type="victory" />
+                            <MatrixLetters letter="n" type="victory" />
+                            <MatrixLetters letter="s" type="victory" />
+                            <MatrixLetters letter="!" type="victory" />
+                        </div> : null
+                    }
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                    <MatrixLetters />
+                </div>
             </div>
-
         );
     }
 }
