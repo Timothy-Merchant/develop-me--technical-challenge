@@ -1,6 +1,6 @@
 @import "./Global.scss";
 
-.GameForm {    
+.GameForm {
     background: $GreenBlack;
     margin: 0 0 2rem 0;
     width: 30rem;
@@ -9,13 +9,13 @@
     padding: 2rem;
     border: 1px solid $GreenMid;
     color: $GreenMid;
-    font-family: $font;    
+    font-family: $font;
 }
 
 .GameForm__Entry {
     display: flex;
     flex-direction: column;
-    
+
     gap: 0.5rem;
 }
 
@@ -44,4 +44,25 @@
 .GameForm__Error {
     margin: 16px 0 0 0;
     color: $GreenLight;
+}
+
+@media (max-width: $breakpoint-iPhoneX) {
+    .GameForm {
+        font-size: 12px;
+        width: 15rem;
+    }    
+
+    .GameForm__Label {
+        font-size: 12px;
+    }
+
+    .GameForm__Input {
+        height: 2rem;
+        font-size: 15px;
+    }
+
+    .GameForm__Button {    
+        min-height: 3rem;    
+        font-size: 14px;
+    }
 }

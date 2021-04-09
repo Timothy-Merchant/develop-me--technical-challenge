@@ -35,7 +35,6 @@
     width: 1.5rem;
 }
 
-
 // button style
 .Roster__TableData-deletebutton {
     display: inline-block;
@@ -51,7 +50,7 @@
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
-    outline: none;    
+    outline: none;
     width: 100%;
     height: 100%;
     padding-bottom: 2px;
@@ -72,5 +71,52 @@
         outline: 1px $GreenXL solid;
         color: $GreenXL;
         background-color: $GreenDark;
+    }
+}
+
+@media (max-width: $breakpoint-iPhoneX) {
+    .Roster__Wrapper {
+        width: 17rem;
+        padding: 1rem;
+        font-size: 12px;
+    }
+
+    .Roster__Header {
+        font-size: 20px;
+    }
+
+    .Roster__TableHead-Delete {
+        min-width: 3.5rem;
+    }
+
+    .Roster__TableData {
+        height: 2rem;
+    }
+
+    .Roster__TableData-deletebutton {
+        font-size: 12px;
+        padding-bottom: 0px;
+        height: 100%;
+    }
+
+    .Roster__TableData-deleteButtonCell {
+        font-size: 12px;
+        padding: 0px;
+        height: 1rem;
+    }
+
+    .Roster__TableData-deletebutton:hover {
+        animation: deletePress 0.2s linear 1;
+    }
+
+    @keyframes deletePress {
+        from {
+            color: $GreenMid;
+            background-color: $GreenBlack;
+        }
+        to {
+            color: $GreenXL;
+            background-color: $GreenDark;
+        }
     }
 }

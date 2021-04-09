@@ -5,7 +5,7 @@
     font-family: $font;
 }
 
-.Title__Letter {    
+.Title__Letter {
     color: $GreenDark;
     font-size: 5rem;
     text-shadow: -1px -1px 0 $GreenXL, 1px -1px 0 $GreenXL, -1px 1px 0 $GreenXL, 1px 1px 0 $GreenXL;
@@ -41,5 +41,22 @@
     }
     to {
         transform: translateX(0);
+    }
+}
+
+@media (max-width: $breakpoint-iPhoneX) {
+    
+    p {
+        margin: 0;
+    }
+    
+    .Title__Wrapper {
+        display: flex;
+        align-items: center;        
+        height: 8rem;        
+    }
+
+    .Title__Letter {        
+        font-size: 2.5rem;        
     }
 }
