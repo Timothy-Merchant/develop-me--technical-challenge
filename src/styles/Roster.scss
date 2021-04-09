@@ -35,9 +35,6 @@
     width: 1.5rem;
 }
 
-.Roster__TableData-deleteButtonCell:hover {
-    padding: 0;
-}
 
 // button style
 .Roster__TableData-deletebutton {
@@ -67,10 +64,12 @@
 
 @keyframes deletePress {
     from {
+        outline: 1px $GreenMid solid;
         color: $GreenMid;
         background-color: $GreenBlack;
     }
     to {
+        outline: 1px $GreenXL solid;
         color: $GreenXL;
         background-color: $GreenDark;
     }

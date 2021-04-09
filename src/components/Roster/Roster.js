@@ -17,7 +17,7 @@ const Roster = ({ players, deletePlayer }) => {
                         <tr key={index} className="Roster__TableData">
                             <td>{index + 1}</td>
                             <td>{player}</td>
-                            <td className="Roster__TableData-deleteButtonCell">
+                            <td>
                                 <button onClick={() => deletePlayer(index)} className="Roster__TableData-deletebutton">✖</button>
                             </td>
                         </tr>

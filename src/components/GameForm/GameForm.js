@@ -16,7 +16,6 @@ class GameForm extends Component {
 
     }
 
-
     errorTexts = {
         invalidName: "Please enter a name between 3 and 15 characters",
         tooFewPlayers: "Please add at least 2 players to the tournament",
@@ -101,7 +100,7 @@ class GameForm extends Component {
     render() {
         const { gameStarted } = this.props;
         const { playerName, errors } = this.state;
-
+        
         return (
 
 

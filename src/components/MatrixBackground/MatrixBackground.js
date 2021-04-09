@@ -11,10 +11,18 @@ class MatrixBackground extends Component {
     }
 
 
-    render() {     
+    render() {
 
         return (
             <div className="MatrixBackground">
+                {this.props.gameConcluded ?
+                    <div className="MatrixBackground--Victory">
+                        {this.props.champion.split("").map((letter) => (
+                            <MatrixLetters letter={letter} />
+                        ))}
+                    </div> : null
+                }
+
                 <MatrixLetters />
                 <MatrixLetters />
                 <MatrixLetters />
@@ -124,6 +132,7 @@ class MatrixBackground extends Component {
                 <MatrixLetters />
                 <MatrixLetters />
             </div>
+
         );
     }
 }

@@ -15,6 +15,22 @@
     display: flex;
 }
 
+.MatrixBackground--Victory {    
+    width: 60%;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    bottom: 0;
+    background: red;
+    z-index: 1;
+    font-family: $font;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .Matrix__LetterBox {
     color: $GreenDark;
     // animation: mymove 5s linear infinite;
