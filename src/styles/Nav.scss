@@ -1,28 +1,40 @@
 @import "./Global.scss";
 
-.Nav__Wrapper {    
+.Nav__Wrapper {
     box-sizing: border-box;
     display: flex;
     min-height: 5rem;
     width: 100%;
     background-color: $GreenBlack;
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid $GreenMid;
 }
 
-
 .Nav__Link {
     margin: 0 2rem;
-    height: 1.5rem;    
-    color: $GreenMid;    
+    height: 1.5rem;
+    color: $GreenMid;
     background-color: $GreenBlack;
     font-family: $font;
     text-decoration: none;
 }
 
-.Nav__Link:hover {        
-    color: $GreenXL;    
+.Nav__Link:hover {
+    color: $GreenXL;
 }
 
+@media (max-width: $breakpoint-iPhoneX) {
+    .Nav__Wrapper {        
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .Nav__Link {
+        display: flex;
+        justify-content: center;
+        align-items: center;                
+        margin: auto;        
+    }
+}
