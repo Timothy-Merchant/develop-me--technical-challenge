@@ -1,19 +1,14 @@
 @import "./Global.scss";
 
 .Title__Wrapper {
-    display: flex;    
-    font-family: $font;    
+    display: flex;
+    font-family: $font;
 }
 
-.Title__Letter {
-    border: $GreenXL;
+.Title__Letter {    
     color: $GreenDark;
-    font-size: 5rem;    
-    text-shadow:
-     -1px -1px 0 $GreenXL,  
-      1px -1px 0 $GreenXL,
-      -1px 1px 0 $GreenXL,
-       1px 1px 0 $GreenXL;
+    font-size: 5rem;
+    text-shadow: -1px -1px 0 $GreenXL, 1px -1px 0 $GreenXL, -1px 1px 0 $GreenXL, 1px 1px 0 $GreenXL;
 }
 
 @keyframes top {
