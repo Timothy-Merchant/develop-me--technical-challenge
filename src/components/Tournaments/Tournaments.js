@@ -1,6 +1,6 @@
 import '../../styles/Tournaments.scss';
 import { Component } from 'react';
-import Pairing from '../Pairing';
+import Pairing from '../TournamentTree/Pairing';
 
 class Tournaments extends Component {
 

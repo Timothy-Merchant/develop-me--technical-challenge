@@ -1,4 +1,4 @@
-import '../../styles/Roster.scss';
+import '../../../styles/Roster.scss';
 
 const Roster = ({ players, deletePlayer }) => {
     return (

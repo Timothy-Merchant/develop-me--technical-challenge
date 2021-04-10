@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import LoadTournaments from "./LoadTournaments";
-import { getTournaments } from "../../data/actions/api"
+import { getTournaments } from "../../../data/actions/api"
 
 const mapStateToProps = ({ loaded }) => ({
     loaded,

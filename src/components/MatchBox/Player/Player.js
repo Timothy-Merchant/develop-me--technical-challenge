@@ -1,4 +1,4 @@
-import '../../styles/Player.scss';
+import '../../../styles/Player.scss';
 
 const Player = ({ player, increaseScore, inputDisabled, disableButtons }) => {
 

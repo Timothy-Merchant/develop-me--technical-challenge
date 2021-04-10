@@ -9,7 +9,7 @@ import MatchBox from '../MatchBox';
 import Victory from '../Victory';
 import FourOhFour from '../FourOhFour/FourOhFour';
 import Nav from '../Nav';
-import LoadTournaments from '../LoadTournaments/';
+import LoadTournaments from '../Tournaments/LoadTournaments';
 import Tournaments from '../Tournaments/';
 import MatrixBackground from '../MatrixBackground/';
 

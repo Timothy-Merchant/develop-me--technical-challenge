@@ -1,9 +1,9 @@
 import '../../styles/GameForm.scss';
 import RandomNames from './randomNames.json';
 import { Component } from "react";
-import Roster from "../Roster";
+import Roster from "./Roster";
 import { Redirect } from "react-router-dom";
-import Title from '../Title';
+import Title from './Title';
 
 class GameForm extends Component {
 

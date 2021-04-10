@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Roster from "./Roster";
-import { deletePlayer } from "../../data/actions/state"
+import { deletePlayer } from "../../../data/actions/state"
 
 const mapStateToProps = state => {
     return {

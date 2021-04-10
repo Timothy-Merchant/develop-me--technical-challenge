@@ -1,5 +1,5 @@
 import '../../styles/MatchBox.scss';
-import Player from '../Player';
+import Player from './Player';
 import { Component } from 'react';
 import TournamentTree from '../TournamentTree/';
 import { Redirect } from "react-router-dom";

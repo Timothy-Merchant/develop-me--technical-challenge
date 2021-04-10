@@ -1,4 +1,4 @@
-import '../../styles/Title.scss';
+import '../../../styles/Title.scss';
 import { Component } from 'react';
 import Letter from './Letter';
 

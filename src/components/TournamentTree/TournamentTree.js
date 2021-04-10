@@ -1,5 +1,5 @@
 import '../../styles/TournamentTree.scss';
-import Pairing from '../Pairing';
+import Pairing from './Pairing';
 
 const TournamentTree = ({ gameStarted, games, rounds }) => {
 

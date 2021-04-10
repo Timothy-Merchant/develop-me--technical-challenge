@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Player from "./Player";
-import { disableButtons } from '../../data/actions/state'
+import { disableButtons } from '../../../data/actions/state'
 
 const mapStateToProps = state => {
     return {

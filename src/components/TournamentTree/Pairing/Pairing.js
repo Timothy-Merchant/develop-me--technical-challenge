@@ -1,4 +1,4 @@
-import '../../styles/Pairing.scss';
+import '../../../styles/Pairing.scss';
 
 const Pairing = ({ game }) => {
 
