@@ -1,11 +1,26 @@
-### Installed project dependencies
-    axios: ^0.21.1,    
-    react: ^17.0.2,    
-    react-redux: ^7.2.3,    
-    redux: ^4.0.5,
-    redux-localstorage: ^0.4.1,
-    redux-thunk: ^2.3.0,
+### Welcome to Pongtrix!
+    By Timothy Merchant
 
+### About
+    This app allows you to create tournament brackets and play through them.
+    It is based on table-tennis scoring, and has functionality for display deuce 
+    and service changes.
+    It stores tournaments procedurally to an AWS API I created using Laravel and PHP.
+    It also allows you to view up to the last 50 tournaments recorded.
+
+### Installed project dependencies
+
+    "axios": "^0.21.1",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux": "^4.0.5",
+    "redux-debounced": "^0.5.0",
+    "redux-localstorage": "^0.4.1",
+    "redux-thunk": "^2.3.0"
 
 ### React Specific Readme Entries ###
 
