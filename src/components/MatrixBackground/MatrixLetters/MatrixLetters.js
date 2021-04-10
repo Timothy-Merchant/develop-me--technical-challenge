@@ -3,6 +3,12 @@ import { Component } from "react";
 import MatrixLetter from './MatrixLetter';
 import LettersArray from './LettersArray.json';
 
+/**
+ * This component and its sub component, MatrixLetter, consists of a single string of letters
+ * arranged from the LettersArray json file.
+ * This compromises one strand of the Matrix background style.
+ */
+
 class MatrixLetters extends Component {
 
     constructor(props) {
@@ -12,10 +18,12 @@ class MatrixLetters extends Component {
             letters: []
         }
 
-        this.setupLetterSpeed = this.setupLetterSpeed.bind(this);        
+        this.setupLetterSpeed = this.setupLetterSpeed.bind(this);
         this.setupLetterStyle = this.setupLetterStyle.bind(this);
     }
 
+    // On mount, we set random amount and type of letters, also set a random animation duration.
+    // *We set the duration differently for victory letters as they have less distance to fall.
     componentDidMount = () => {
 
         const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
@@ -44,24 +52,7 @@ class MatrixLetters extends Component {
         })
     };
 
-    onAnimationEnd = () => {
-
-        const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
-
-        const newLetters = [];
-
-        let counter = 0;
-
-        while (counter < numberOfLetters) {
-            counter += 1;
-            newLetters.push(LettersArray[Math.floor(Math.random() * LettersArray.length)])
-        }
-
-        this.setState({
-            letters: newLetters
-        })
-    };
-
+    // Each individual letter has a different colour and fade animation.
     setupLetterStyle = () => {
         const dice = Math.floor(Math.random() * (100 - 1) + 1);
 
@@ -70,6 +61,7 @@ class MatrixLetters extends Component {
         return animationStyle
     }
 
+    // Each individual letter also has a different fade in and out speed.
     setupLetterSpeed = () => {
         return Math.floor(Math.random() * (5 - 1) + 1);
     }
@@ -93,7 +85,7 @@ class MatrixLetters extends Component {
                     </div>
                 </> :
                 <>
-                    <div style={{ animation: `letterFall ${duration}s linear infinite` }} onAnimationEnd={this.onAnimationEnd} className="Matrix__LetterBox">
+                    <div style={{ animation: `letterFall ${duration}s linear infinite` }} className="Matrix__LetterBox">
                         {
                             letters.map((letter, index) => (
                                 <MatrixLetter key={index} animationStyle={this.setupLetterStyle()} animationSpeed={this.setupLetterSpeed()} letter={letter} />

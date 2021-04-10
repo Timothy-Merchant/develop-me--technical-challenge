@@ -3,15 +3,9 @@ import { Component } from "react";
 
 class MatrixLetter extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
-
     render() {
 
-        const { animationStyle, animationSpeed, letter} = this.props;
+        const { animationStyle, animationSpeed, letter } = this.props;
 
         return (
             <>
