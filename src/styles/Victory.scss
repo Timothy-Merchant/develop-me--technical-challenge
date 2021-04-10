@@ -5,11 +5,8 @@
 }
 
 .Victory__Button {
-    margin: 2rem;
     @include button;
+    margin: 2rem;
     padding: 0.4rem;
-    border: 1px solid $GreenMid;
-    color: $GreenMid;
-    background-color: $GreenBlack;
-    font-family: $font;
+    border: 1px solid $GreenMid;        
 }

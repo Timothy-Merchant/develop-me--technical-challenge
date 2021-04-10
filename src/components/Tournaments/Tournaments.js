@@ -2,6 +2,13 @@ import '../../styles/Tournaments.scss';
 import { Component } from 'react';
 import Pairing from '../TournamentTree/Pairing';
 
+/**
+ * This component lists the tournament history.
+ * It displays the result of the api request that asks for
+ * the latest 50 tournaments from the server 
+ * as a series of TournamentTree components.
+ */
+
 class Tournaments extends Component {
 
     constructor(props) {
@@ -18,6 +25,7 @@ class Tournaments extends Component {
                 index === length - 2 ? "Quarter Finals" : `Round ${index}`
     )
 
+    // Resets the loaded bool for the next time we call the API for tournaments
     componentDidMount() {
         this.props.tournamentLoaded();
     }
@@ -27,7 +35,6 @@ class Tournaments extends Component {
         return (
             <>
                 <div className="pageStyle">
-
 
                     {this.props.tournaments.map((tournament, tIndex) => (
 

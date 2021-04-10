@@ -1,5 +1,11 @@
+import "../../../styles/Loading.scss";
 import { Component } from "react";
 import { Redirect } from "react-router";
+
+/**
+ * Component which provides a loading screen while we 
+ * call tournaments information from the API.
+ */
 
 class LoadTournaments extends Component {
 
@@ -12,11 +18,10 @@ class LoadTournaments extends Component {
     render() {
         const { loaded } = this.props;
         return loaded ? <Redirect to="tournaments" /> : (
-            <div className="progress">
-                <div
-                    className="progress-bar progress-bar-striped active"
-                    style={{ width: "100%" }}
-                />
+            <div className="pageStyle">
+                <div className="Loading">
+                    <p>Loading...</p>
+                </div>
             </div>
         );
     }

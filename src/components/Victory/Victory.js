@@ -1,8 +1,14 @@
 import { Redirect } from 'react-router';
 import '../../styles/Victory.scss';
-// import TournamentTree from '../TournamentTree/';
 
-const Victory = ({ champion, gameStarted, reset }) => {
+/**
+ * This component serves a placeholder while the MatrixBackground
+ * component displays the victory message.
+ * This component will display until the player chooses either new tournament
+ * or view tournaments. 
+ */
+
+const Victory = ({ gameStarted }) => {
 
     return (
         !gameStarted ? <Redirect to="" /> :

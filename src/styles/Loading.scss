@@ -1,0 +1,13 @@
+@import "./Global.scss";
+
+.Loading {
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $GreenDark;
+    font-size: 2rem;
+    text-shadow: -1px -1px 0 $GreenXL, 1px -1px 0 $GreenXL, -1px 1px 0 $GreenXL, 1px 1px 0 $GreenXL;
+    font-family: $font;
+}

@@ -1,5 +1,10 @@
 import '../../../styles/Pairing.scss';
 
+/**
+ * This sub-component of tournamnet tree displays player and score
+ * information for an individual match up.
+ */
+
 const Pairing = ({ game }) => {
 
     const winMessages = {
@@ -9,20 +14,18 @@ const Pairing = ({ game }) => {
     }
 
     return (
-
-
         <table>
             <tbody>
                 <tr className={
                     game.players[0].won === 1 ? "pairing__player won" :
-                    game.players[0].won === 2 ? "pairing__player lost" : "pairing__player"}>
+                        game.players[0].won === 2 ? "pairing__player lost" : "pairing__player"}>
                     <td className="pairing__name">{game.players[0].name}</td>
                     <td className="pairing__score">{game.players[0].score}</td>
                     <td className="pairing__win">{winMessages[game.players[0].won]}</td>
                 </tr>
                 <tr className={
                     game.players[1].won === 1 ? "pairing__player won" :
-                    game.players[1].won === 2 ? "pairing__player lost" : "pairing__player"}>
+                        game.players[1].won === 2 ? "pairing__player lost" : "pairing__player"}>
                     <td className="pairing__name">{game.players[1].name}</td>
                     <td className="pairing__score">{game.players[1].score}</td>
                     <td className="pairing__win">{winMessages[game.players[1].won]}</td>
