@@ -2,6 +2,14 @@ import '../../styles/MatrixBackground.scss';
 import MatrixLetters from "./MatrixLetters";
 import { Component } from "react";
 
+/**
+ * This component displays the background and victory screen background.
+ * It simply produces a certain number of MatrixLetters subcomponents and displays them horizontally.
+ * It inserts a finite set of MatrixLetters between the two divs when displaying the victory screen.
+ * These letters are specifically designed to pass '<Player Name>-Wins!' as the last letter in each
+ * MatrixLetters component.
+ */
+
 class MatrixBackground extends Component {
 
     render() {

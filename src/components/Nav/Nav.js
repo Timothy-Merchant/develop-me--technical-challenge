@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
  * Nav bar that resets the game upon selecting New Tournament, or lets the player navigate to view the Tournament History.
  */
 
-const Nav = ({reset}) => {
+const Nav = ({ reset }) => {
 
     return (
         <>

@@ -1,6 +1,7 @@
 import '../../../styles/MatrixBackground.scss';
 import { Component } from "react";
 import MatrixLetter from './MatrixLetter';
+import LettersArray from './LettersArray.json';
 
 class MatrixLetters extends Component {
 
@@ -15,50 +16,6 @@ class MatrixLetters extends Component {
         this.setupLetterStyle = this.setupLetterStyle.bind(this);
     }
 
-    LettersArray = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "Z",
-        "X",
-        "Y",
-        "W",
-        "A",
-        "B",
-        "C",
-        "D",
-        "￥",
-        "＃",
-        "＄",
-        "＆",
-        "＠",
-        "丸",
-        "馬",
-        "雲",
-        "火",
-        "水",
-        "暗",
-        "光",
-        "木",
-        "土",
-        "氷",
-        "ア",
-        "イ",
-        "ウ",
-        "エ",
-        "オ",
-        "カ",
-        "キ",
-        "ク",
-        "ケ",
-        "コ",
-        "サ",
-        "シ",
-        "ツ",
-    ]
-
     componentDidMount = () => {
 
         const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
@@ -69,7 +26,7 @@ class MatrixLetters extends Component {
 
         while (counter < numberOfLetters) {
             counter += 1;
-            newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
+            newLetters.push(LettersArray[Math.floor(Math.random() * LettersArray.length)])
         }
 
         const newDuration = Math.floor(Math.random() * (12 - 5) + 5);
@@ -97,7 +54,7 @@ class MatrixLetters extends Component {
 
         while (counter < numberOfLetters) {
             counter += 1;
-            newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
+            newLetters.push(LettersArray[Math.floor(Math.random() * LettersArray.length)])
         }
 
         this.setState({
