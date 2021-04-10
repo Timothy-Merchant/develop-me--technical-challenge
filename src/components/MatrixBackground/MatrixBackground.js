@@ -4,85 +4,14 @@ import { Component } from "react";
 
 class MatrixBackground extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
-
     render() {
-
-        // const { width } = this.state
 
         return (
             <div className="MatrixBackground">
                 <div className="MatrixBackground--Victory">
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
+                    {[...Array(60)].map((letter, index) => (
+                        <MatrixLetters key={index} />
+                    ))}
                     {this.props.gameConcluded ?
                         <div className="MatrixBackground__VictorySegment">
                             {this.props.champion.split("").map((letter, index) => (
@@ -96,72 +25,9 @@ class MatrixBackground extends Component {
                             <MatrixLetters letter="!" type="victory" />
                         </div> : null
                     }
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
-                    <MatrixLetters />
+                    {[...Array(60)].map((letter, index) => (
+                        <MatrixLetters key={index} />
+                    ))}
                 </div>
             </div>
         );

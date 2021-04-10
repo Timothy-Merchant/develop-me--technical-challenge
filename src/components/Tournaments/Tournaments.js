@@ -11,14 +11,6 @@ import Pairing from '../TournamentTree/Pairing';
 
 class Tournaments extends Component {
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            date: ""
-        }
-    }
-
     roundName = (index, length) => (
         index === length ? "Final" :
             index === length - 1 ? "Semi Finals" :
