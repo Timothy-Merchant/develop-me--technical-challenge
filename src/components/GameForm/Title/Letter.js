@@ -1,6 +1,12 @@
 import '../../../styles/Title.scss';
 import { Component } from "react";
 
+/**
+ * Individual Letter component for use in the Title component.
+ * Holds logic for creating random speeds and directions for each
+ * letter to arrive at.
+ */
+
 class Letter extends Component {
 
     constructor(props) {

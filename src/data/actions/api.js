@@ -1,10 +1,42 @@
 import axios from '../../axios'
 import { loadTournaments, finishTournament, beginTournament, updateScore, finishMatch, finishRound } from "./state";
 
+/**
+ * API Requests
+ * 
+ * GET /tournaments 
+ * "getTournaments" Line 36
+ * Gets the latest 50 tournaments from the API to 
+ * display on the Tournaments page
+ * 
+ * POST /tournaments 
+ * "startGame" Line 45
+ * Sends the player information sent from GameForm, 
+ * after separating players into a JSON arrangement of Rounds and Games.
+ * 
+ * PUT /tournaments/{tournament}/rounds/{round}/games/{game}/players/{player}
+ * "increaseScore" Line 101
+ * Update's the player's score, which the backend then uses to ascertain the game status 
+ * (service, deuce, won etc.). Receives back the new game information and player information.
+ * 
+ * PUT /tournaments/{tournament}/rounds/{round}/games/{game} 
+ * "completeMatch" Line 112
+ * Update's the match information to 'complete' and stores the final result.
+ * 
+ * PUT /tournaments/{tournament}/rounds/{round}
+ * "endRound" Line 123
+ * Update the round to 'complete', as well as associated game information.
+ * 
+ * PUT /tournaments/{tournament}/rounds/{round}
+ * "endTournament" Line 138
+ * Similar to endRound, though this ends the entire tournament and sets the champion.
+ * 
+ */
+
 export const getTournaments = () => {
 
     return (dispatch) => {
-        axios.get("/tournaments").then(({ data }) => {            
+        axios.get("/tournaments").then(({ data }) => {
             dispatch(loadTournaments(data));
         })
     }
@@ -122,6 +154,8 @@ export const endTournament = (data) => {
         })
     }
 }
+
+// Helper Functions
 
 const makeNewGames = (newPlayers) => {
 

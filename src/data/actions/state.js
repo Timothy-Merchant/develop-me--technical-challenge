@@ -18,7 +18,6 @@ export const createPlayer = (data) => {
     }
 }
 
-
 export const beginTournament = (data) => {
 
     const tournament = data[0];
@@ -60,8 +59,6 @@ export const updateScore = (data) => {
     const player = { ...data[0] };
     const adversary = { ...data[1] };
     const game = { ...data[2] };
-
-    console.log(player);
 
     return {
         type: "INCREASE_SCORE",

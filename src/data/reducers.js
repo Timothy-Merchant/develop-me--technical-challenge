@@ -52,7 +52,6 @@ const setupNewRound = (state, { newPlayer1s, newPlayer2s, currentRound, match })
             ...nextRound,
             games: [...newGames]
         },
-        // This is the problem, sets the game to have "" players...
         currentGame: { ...newGames[0] }
     }
 }
@@ -81,7 +80,7 @@ const reducer = (state, action) => {
             loaded: true,
             tournaments: action.tournaments
         };
-        case "TOURNAMENTS_LOADED": return {...state, loaded: false};
+        case "TOURNAMENTS_LOADED": return { ...state, loaded: false };
         case "CREATE_PLAYER": return {
             ...state,
             players: [...state.players, action.newPlayer]

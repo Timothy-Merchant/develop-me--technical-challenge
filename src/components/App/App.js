@@ -13,6 +13,16 @@ import LoadTournaments from '../Tournaments/LoadTournaments';
 import Tournaments from '../Tournaments/';
 import MatrixBackground from '../MatrixBackground/';
 
+/**
+ * Welcome to Pongtrix!
+ * This App has five pages:
+ * A Player creation page. (GameForm)
+ * A Game/Tournament play through page. (MatchBox)
+ * A Victory screen page. (Victory)
+ * A Tournament listings Page. (Tournaments)
+ * A 404 redirect page. (FourOhFour)
+ */
+
 const App = ({ gameConcluded, gameStarted }) => {
   return (
     <>

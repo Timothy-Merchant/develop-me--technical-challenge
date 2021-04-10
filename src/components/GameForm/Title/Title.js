@@ -2,32 +2,12 @@ import '../../../styles/Title.scss';
 import { Component } from 'react';
 import Letter from './Letter';
 
+/**
+ * Title component that displays Pongtrix letters flying in from 4 random directions.
+ * Makes use of a Letter subcomponent which holds the directional logic.
+ */
+
 class Title extends Component {
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-        }
-    }
-
-    // onAnimationEnd = () => {
-
-    //     const numberOfLetters = Math.floor(Math.random() * (40 - 5) + 5);
-
-    //     const newLetters = [];
-
-    //     let counter = 0;
-
-    //     while (counter < numberOfLetters) {
-    //         counter += 1;
-    //         newLetters.push(this.LettersArray[Math.floor(Math.random() * this.LettersArray.length)])
-    //     }
-
-    //     this.setState({
-    //         letters: newLetters
-    //     })
-    // };
 
     render() {
 

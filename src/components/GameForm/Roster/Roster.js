@@ -1,5 +1,10 @@
 import '../../../styles/Roster.scss';
 
+/**
+ * This component is a simple table that holds displays the provisional player list
+ * while players are being created (and before they a new tournament request is made to the API.)
+ */
+
 const Roster = ({ players, deletePlayer }) => {
     return (
         <div className="Roster__Wrapper">
