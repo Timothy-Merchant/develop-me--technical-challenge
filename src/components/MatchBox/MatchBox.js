@@ -4,6 +4,11 @@ import { Component } from 'react';
 import TournamentTree from '../TournamentTree/';
 import { Redirect } from "react-router-dom";
 
+/**
+ * This component displays the individual Match information for each match.
+ * It displays two Player components, representing each player, as well as the TournamentTree component for displaying the results.
+ */
+
 class MatchBox extends Component {
 
     constructor(props) {
@@ -12,6 +17,7 @@ class MatchBox extends Component {
         this.completeMatch = this.completeMatch.bind(this);
     }
 
+    // Handles API calls for ending the round, game or tournament if either player has won.
     componentDidUpdate() {
 
         const { disableButtons, currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch, gameConcluded } = this.props;
@@ -44,9 +50,8 @@ class MatchBox extends Component {
         }
     }
 
-
+    // This function auto completes a match
     completeMatch = () => {
-
 
         const { currentGame, currentRound, tournamentID, endRound, rounds, endTournament, nextMatch } = this.props;
 
@@ -75,6 +80,8 @@ class MatchBox extends Component {
                 })
     }
 
+    // This function calculates the textual title heading for each individual match.
+    // eg. Quarter Finals, Match 2/4
     calculateTitle = () => {
         let totalMatches = this.props.currentRound.games.length;
         let currentMatch = 0;
