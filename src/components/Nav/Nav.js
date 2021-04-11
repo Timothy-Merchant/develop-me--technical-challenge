@@ -10,8 +10,8 @@ const Nav = ({ reset }) => {
     return (
         <>
             <div className="Nav__Wrapper">
-                <Link onClick={() => reset()} className="Nav__Link" to="/">New Tournament</Link>
-                <Link className="Nav__Link" to="/loadTournaments">Tournament History</Link>
+                <Link onClick={() => reset()} className="Nav__Link" to="develop-me--technical-challenge/">New Tournament</Link>
+                <Link className="Nav__Link" to="develop-me--technical-challenge/loadTournaments">Tournament History</Link>
             </div>
         </>
     )

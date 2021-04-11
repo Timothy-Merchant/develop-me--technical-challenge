@@ -30,11 +30,11 @@ const App = ({ gameConcluded, gameStarted }) => {
         <Nav />
         <MatrixBackground />
         <Switch>
-          <Route exact path="/" component={GameForm}></Route>
-          <Route exact path="/game" component={MatchBox}></Route>
-          <Route exact path="/victory" component={Victory}></Route>
-          <Route exact path="/loadTournaments" component={LoadTournaments}></Route>
-          <Route exact path="/tournaments" component={Tournaments}></Route>
+          <Route exact path="develop-me--technical-challenge/" component={GameForm}></Route>
+          <Route exact path="develop-me--technical-challenge/game" component={MatchBox}></Route>
+          <Route exact path="develop-me--technical-challenge/victory" component={Victory}></Route>
+          <Route exact path="develop-me--technical-challenge/loadTournaments" component={LoadTournaments}></Route>
+          <Route exact path="develop-me--technical-challenge/tournaments" component={Tournaments}></Route>
           <FourOhFour />
         </Switch>
       </Router>
