@@ -105,7 +105,7 @@ class GameForm extends Component {
         return (
 
 
-            gameStarted ? <Redirect to="develop-me--technical-challenge/game" /> :
+            gameStarted ? <Redirect to="game" /> :
                 <>
                     <div className="pageStyle">
                         <Title />

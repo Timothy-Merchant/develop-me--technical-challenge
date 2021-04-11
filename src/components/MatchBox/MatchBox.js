@@ -114,7 +114,7 @@ class MatchBox extends Component {
         const { increaseScore, currentGame, currentRound, tournamentID, gameConcluded } = this.props;
 
         return (
-            gameConcluded ? <Redirect to="develop-me--technical-challenge/victory" /> :
+            gameConcluded ? <Redirect to="/victory" /> :
                 <div className="pageStyle">
                     <div className="MatchBox__Wrapper">
                         <h1 className="MatchBox__Header">{this.calculateTitle()}</h1>

@@ -11,7 +11,7 @@ import '../../styles/Victory.scss';
 const Victory = ({ gameStarted }) => {
 
     return (
-        !gameStarted ? <Redirect to="develop-me--technical-challenge/" /> :
+        !gameStarted ? <Redirect to="" /> :
             <>
                 <div className="pageStyle">
 
