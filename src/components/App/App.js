@@ -26,7 +26,7 @@ import MatrixBackground from '../MatrixBackground/';
 const App = ({ gameConcluded, gameStarted }) => {
   return (
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Nav />
         <MatrixBackground />
         <Switch>
